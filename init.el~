@@ -2,6 +2,9 @@
 
 ;; User Interface
 
+(defvar efs/default-font-size 140)
+(defvar efs/default-variable-font-size 140)
+
 (setq inhibit-startup-message t)  ; turn off splash screen
 
 (tool-bar-mode -1)   ; turn tool bar off
@@ -13,19 +16,32 @@
 ;; Set up the visible bell
 (setq visible-bell t)
 
+; Display relative line numbers
 (column-number-mode)
+(global-display-line-numbers-mode t)
 (setq display-line-numbers 'relative)
 
 ;; Package Management
-
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-(package-refresh-contents)
 
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
+
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Initialize use-package on non-Linux platforms
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
 
 ;; Theme
-
+(use-package doom-themes
+  :init (load-theme 'doom-palenight t))
 
 ;; Evil Mode
 
@@ -40,12 +56,28 @@
 
 ;; Org mode
 
+
+; Disable line numbers for some modes
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                shell-mode-hook
+                treemacs-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+(set-face-attribute 'default nil :font "Fira Code Retina" :height efs/default-font-size)
+
+;; Set the fixed pitch face
+(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height efs/default-font-size)
+
+;; Set the variable pitch face
+(set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (evil))))
+ '(package-selected-packages (quote (use-package evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
