@@ -43,7 +43,6 @@
 (use-package doom-themes
   :init (load-theme 'doom-palenight t))
 
-;; Evil Mode
 
 ;; Download Evil
 (unless (package-installed-p 'evil)
@@ -65,10 +64,10 @@
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(set-face-attribute 'default nil :font "Fira Code Retina" :height efs/default-font-size)
+(set-face-attribute 'default nil :font "Menlo" :height efs/default-font-size)
 
 ;; Set the fixed pitch face
-(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height efs/default-font-size)
+(set-face-attribute 'fixed-pitch nil :font "Menlo" :height efs/default-font-size)
 
 ;; Set the variable pitch face
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
@@ -84,3 +83,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; org mode
+(require 'org-tempo) 
+
+;; 
