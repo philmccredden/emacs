@@ -17,6 +17,13 @@
 (global-display-line-numbers-mode t)
 (setq display-line-numbers 'relative)
 
+;; Answering just 'y' or 'n' will suffice
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Backup config
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
+
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")

@@ -1,5 +1,12 @@
 ;; Phil's custom emacs config
 
+* Tasks
+** DONE Configure backups to save the files in a central directory
+** TODO Set a short cut to open the config.org file on windows
+** TODO Magit Git interface
+** TODO Which key
+** TODO Configure backups correctly on windows
+
 * User Interface
   #+begin_src emacs-lisp
   (defvar efs/default-font-size 140)
@@ -20,6 +27,13 @@
   (column-number-mode)
   (global-display-line-numbers-mode t)
   (setq display-line-numbers 'relative)
+  
+  ;; Answering just 'y' or 'n' will suffice
+  (defalias 'yes-or-no-p 'y-or-n-p)
+
+  ;; Backup config
+  (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+  (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
   #+end_src
 
 * Package Management
