@@ -24,6 +24,9 @@
 					    ; Highlights the current cursor line
     (global-hl-line-mode t)
 
+    (display-time-mode 1) ;; display the clock
+    (setq sentence-end-double-space nil) ;; Sentences finish with one space
+
     (global-set-key (kbd "C-x C-b") 'ibuffer)
 
     (defvar runemacs/default-font-size 140)

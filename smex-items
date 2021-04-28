@@ -1,0 +1,19 @@
+
+;; ----- smex-history -----
+(
+ ibuffer
+ windmove-down
+ org-mobile-push
+ list-packages
+ cd
+ 5x5
+ arp
+)
+
+;; ----- smex-data -----
+(
+ (list-packages . 1)
+ (org-mobile-push . 2)
+ (windmove-down . 1)
+ (ibuffer . 1)
+)
