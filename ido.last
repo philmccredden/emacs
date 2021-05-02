@@ -1,0 +1,28 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/phil/Dropbox/@Work/Clients/CofC SA&NT/" . "Careworks/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/phil/Dropbox/@Work/Clients/CofC SA&NT/Careworks/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ 
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/phil/Dropbox/@Work/Clients/CofC SA&NT/Careworks/" (24717 11634 427025 84000) "proposal.tex" "careworks-process-proposal" "proposal.org" "proposal.pdf" "proposal.org~" "ecclesia-logo.jpg" "proposal.tex~" "../" "./")
+
+ ("/Users/phil/Dropbox/@Work/Clients/CofC SA&NT/" (24716 38425 926829 549000) "Careworks/" "Missional Experiments/" "Stage Two Analysis.pdf" "S2-ExecSummary/" "Meg Process/" ".DS_Store" "s2-summary/" "../" "./")
+
+ ("/Users/phil/Dropbox/@Work/Clients/CofC SA&NT/S2-ExecSummary/" (24711 47219 143981 470000) "s2-exec-summary.tex~" ".auctex-auto/" "s2-exec-summary.org~" "s2-exec-summary.tex" "ecclesia-logo.jpg" "images/" "s2-exec-summary.org" "s2-exec-summary.pdf" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

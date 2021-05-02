@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ rename-buffer
+ rename-file
  ibuffer
  windmove-down
  org-mobile-push
  list-packages
  cd
- 5x5
- arp
 )
 
 ;; ----- smex-data -----
@@ -16,4 +16,6 @@
  (org-mobile-push . 2)
  (windmove-down . 1)
  (ibuffer . 1)
+ (rename-file . 1)
+ (rename-buffer . 1)
 )
