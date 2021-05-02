@@ -1,4 +1,81 @@
-; Highlights the current cursor line
+% Created 2021-05-02 Sun 18:59
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Phil McCredden}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Phil McCredden},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+;; Phil's custom emacs config
+
+\section{Tasks}
+\label{sec:org6f79c34}
+\subsection{{\bfseries\sffamily DONE} Configure backups to save the files in a central directory}
+\label{sec:org9ae526e}
+\subsection{{\bfseries\sffamily TODO} Set a short cut to open the config.org file on windows}
+\label{sec:org3c7f11f}
+\subsection{{\bfseries\sffamily DONE} Magit Git interface}
+\label{sec:orgddfff12}
+\subsection{{\bfseries\sffamily DONE} Which key}
+\label{sec:org1ef652f}
+\subsection{{\bfseries\sffamily DONE} figure out easy buffer switching}
+\label{sec:org3835e4d}
+\subsection{{\bfseries\sffamily DONE} Window Switching}
+\label{sec:orgf60ae7f}
+\subsection{{\bfseries\sffamily TODO} Org Mode config}
+\label{sec:org7c49213}
+\subsection{{\bfseries\sffamily TODO} org-ref}
+\label{sec:orgb3c4923}
+
+\subsection{{\bfseries\sffamily TODO} deft?}
+\label{sec:org61fca6e}
+\subsection{{\bfseries\sffamily TODO} Set shortcuts for code blocks}
+\label{sec:orge109664}
+\subsection{{\bfseries\sffamily TODO} Elfeed}
+\label{sec:org6d739c4}
+\subsection{{\bfseries\sffamily TODO} Web mode}
+\label{sec:org15dd684}
+\subsection{{\bfseries\sffamily TODO} Spelling}
+\label{sec:orga3c78a2}
+\subsection{{\bfseries\sffamily TODO} Sync bookmarks}
+\label{sec:org3e9589b}
+\subsection{{\bfseries\sffamily TODO} Todo states}
+\label{sec:orgebcae7b}
+\subsection{{\bfseries\sffamily TODO} Configure backups correctly on windows}
+\label{sec:org49322aa}
+\subsection{{\bfseries\sffamily TODO} Python}
+\label{sec:org3a95cf9}
+\subsection{{\bfseries\sffamily TODO} Latex}
+\label{sec:orgd5fe446}
+\subsection{{\bfseries\sffamily TODO} Snippets}
+\label{sec:orgc1c0830}
+
+\section{User Interface}
+\label{sec:orgfbdb03c}
+\begin{verbatim}
+					; Highlights the current cursor line
 (global-hl-line-mode t)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -165,6 +242,11 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
+\end{verbatim}
+
+\section{Projectile}
+\label{sec:orgd7d8c4e}
+\begin{verbatim}
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
@@ -180,6 +262,11 @@
 (use-package counsel-projectile
   :config (counsel-projectile-mode))
 
+\end{verbatim}
+
+\section{Magit}
+\label{sec:org2367c2c}
+\begin{verbatim}
 (use-package magit
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
@@ -187,6 +274,10 @@
 ;; NOTE: Make sure to configure a GitHub token before using this package!
 (use-package forge)
 
+\end{verbatim}
+\section{org mode}
+\label{sec:orgb44822d}
+\begin{verbatim}
 (require 'org)
 ;; set up org mobile mode for ipad
 (setq org-directory "~/Dropbox/org")
@@ -223,7 +314,11 @@
   (variable-pitch-mode 1)
   (visual-line-mode 1))
 
-;; easy window switchingo
+\end{verbatim}
+\section{Switch Window}
+\label{sec:orga5e5cb2}
+\begin{verbatim}
+    ;; easy window switchingo
 (use-package switch-window
   :ensure t
   :bind
@@ -238,13 +333,22 @@
   ;; "x" acts as a dummy; remove first entry if not running server
   (setq switch-window-qwerty-shortcuts '("x" "a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "r" "u" "i" "o" "q" "t" "y" "p"))
   (setq switch-window-increase 3))
+\end{verbatim}
 
-(setq org-src-fontify-natively t)
+\section{code blocks}
+\label{sec:orgf50f5a8}
+\begin{verbatim}
+    (setq org-src-fontify-natively t)
 
 (org-babel-do-load-languages
 	 'org-babel-load-languages
 	 '((emacs-lisp . t)
 	   (python . t)))
+\end{verbatim}
+
+\section{Pdf tools}
+\label{sec:orgbf2fc66}
+\begin{verbatim}
 
 ;;; Install epdfinfo via 'brew install pdf-tools --HEAD' and then install the
 ;;; pdf-tools elisp via the use-package below. To upgrade the epdfinfo
@@ -263,3 +367,8 @@
 
 (use-package org-pdftools
   :hook (org-mode . org-pdftools-setup-link))
+
+(add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
+
+\end{verbatim}
+\end{document}

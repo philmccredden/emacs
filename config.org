@@ -8,6 +8,9 @@
 ** DONE figure out easy buffer switching
 ** DONE Window Switching
 ** TODO Org Mode config
+** TODO org-ref
+   
+** TODO deft?
 ** TODO Set shortcuts for code blocks
 ** TODO Elfeed
 ** TODO Web mode
@@ -63,7 +66,8 @@
     (setq use-package-always-ensure t)
 
     (column-number-mode)
-    (global-display-line-numbers-mode t)
+    ;(display-line-numbers-mode 'relative)
+    (setq display-line-numbers 'relative)
 
     ;; Disable line numbers for some modes
     (dolist (mode '(term-mode-hook
@@ -106,7 +110,7 @@
       :custom ((doom-modeline-height 15)))
 
     (use-package doom-themes
-      :init (load-theme 'doom-one t))
+      :init (load-theme 'doom-palenight t))
 
     (use-package rainbow-delimiters
       :hook (prog-mode . rainbow-delimiters-mode))
@@ -220,8 +224,13 @@
   #+end_src
 * org mode
   #+begin_src emacs-lisp
+    (require 'org)
     ;; set up org mobile mode for ipad
     (setq org-directory "~/Dropbox/org")
+
+    (setq org-agenda-files (list "~/Dropbox/org/work.org"
+			     "~/Dropbox/org/personal.org"))
+
     (setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
     (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
@@ -280,3 +289,30 @@
 	 '((emacs-lisp . t)
 	   (python . t)))
   #+end_src
+
+* Pdf tools
+  #+begin_src elisp
+
+    ;;; Install epdfinfo via 'brew install pdf-tools --HEAD' and then install the
+    ;;; pdf-tools elisp via the use-package below. To upgrade the epdfinfo
+    ;;; server, just do 'brew upgrade pdf-tools' prior to upgrading to newest
+    ;;; pdf-tools package using Emacs package system. If things get messed
+    ;;; up, just do 'brew uninstall pdf-tools', wipe out the elpa
+    ;;; pdf-tools package and reinstall both as at the start.
+
+    (use-package pdf-tools
+	:ensure t
+	:config
+	(custom-set-variables
+	  '(pdf-tools-handle-upgrades nil)) ; Use brew upgrade pdf-tools instead.
+       (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo"))
+    (pdf-tools-install)
+
+    (use-package org-pdftools
+      :hook (org-mode . org-pdftools-setup-link))
+
+    ; open pdf in pdftools 
+    (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
+
+  #+end_src
+  

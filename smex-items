@@ -1,21 +1,36 @@
 
 ;; ----- smex-history -----
 (
- rename-buffer
- rename-file
- ibuffer
- windmove-down
- org-mobile-push
+ package-install
+ pdf-occur-dired-do-search
+ pdf-tools-install
  list-packages
- cd
+ menu-bar--display-line-numbers-mode-relative
+ load-theme
+ projectile-mode
 )
 
 ;; ----- smex-data -----
 (
- (list-packages . 1)
+ (list-packages . 2)
  (org-mobile-push . 2)
  (windmove-down . 1)
  (ibuffer . 1)
  (rename-file . 1)
  (rename-buffer . 1)
+ (make-directory . 1)
+ (org-agenda . 19)
+ (org-schedule . 2)
+ (org-insert-link . 1)
+ (org-publish . 1)
+ (project-search . 1)
+ (projectile-find-dir . 1)
+ (projectile-mode-menu . 1)
+ (projectile-configure-project . 1)
+ (projectile-mode . 1)
+ (load-theme . 2)
+ (menu-bar--display-line-numbers-mode-relative . 2)
+ (package-install . 2)
+ (pdf-tools-install . 1)
+ (pdf-occur-dired-do-search . 1)
 )

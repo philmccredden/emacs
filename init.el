@@ -8,8 +8,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("c83c095dd01cde64b631fb0fe5980587deec3834dc55144a6e78ff91ebc80b19" default))
+ '(org-agenda-files nil)
  '(package-selected-packages
-   '(switch-window ace-window smex Smex org-bullets hydra general all-the-icons ivy command-log-mode doom-themes use-package evil)))
+   '(org-pdftools pdf-tools switch-window ace-window smex Smex org-bullets hydra general all-the-icons ivy command-log-mode doom-themes use-package evil))
+ '(pdf-tools-handle-upgrades nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

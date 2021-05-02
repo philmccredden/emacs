@@ -1,1 +1,1 @@
-("~/Dropbox/@Work/Latex/CofCSA/CofCSA-S2_report/" "~/.emacs.d/")
+("~/.emacs.d/" "~/Dropbox/@Work/Latex/CofCSA/CofCSA-S2_report/")
