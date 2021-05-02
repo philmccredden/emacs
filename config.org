@@ -29,6 +29,13 @@
 
     (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+    ; open buffers automatically vertically and not horizontal
+    (setq split-height-threshold nil)
+    (setq split-width-threshold 0)
+
+    ; retina support for pdftools
+    (setq pdf-view-use-scaling t)
+
     (defvar runemacs/default-font-size 140)
 
     (setq inhibit-startup-message t)

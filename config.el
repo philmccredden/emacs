@@ -263,3 +263,6 @@
 
 (use-package org-pdftools
   :hook (org-mode . org-pdftools-setup-link))
+
+; open pdf in pdftools 
+(add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))

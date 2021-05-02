@@ -23,9 +23,9 @@
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/phil/.emacs.d/" (24718 26755 242428 487000) ".git/" "bookmarks~" "elpa/" "recentf" "bookmarks" "init.el" "auto-save-list/" "config.el" "transient/" "projectile-bookmarks.eld" "ido.last~" "config.org" "eshell/" "smex-items" "ido.last" "forge-database.sqlite" "../" "./")
+ ("/Users/phil/.emacs.d/" (24718 26881 993410 3000) ".git/" "bookmarks~" "elpa/" "recentf" "bookmarks" "init.el" "auto-save-list/" "config.el" "transient/" "projectile-bookmarks.eld" "ido.last~" "config.org" "eshell/" "smex-items" "ido.last" "forge-database.sqlite" "../" "./")
 
- ("/Users/phil/Dropbox/@Work/Clients/CofC SA&NT/Careworks/" (24718 26586 33901 116000) "careworks-process-proposal.org" "proposal.tex" "careworks-process-proposal.pdf" "careworks-process-proposal.org~" "proposal.org" "careworks-process-proposal.tex" "proposal.pdf" "proposal.org~" "ecclesia-logo.jpg" "proposal.tex~" "../" "./")
+ ("/Users/phil/Dropbox/@Work/Clients/CofC SA&NT/Careworks/" (24718 26916 771367 165000) "careworks-process-proposal.org" "careworks-process-proposal.tex~" "proposal.tex" "careworks-process-proposal.pdf" "careworks-process-proposal.org~" "proposal.org" "careworks-process-proposal.tex" "proposal.pdf" "proposal.org~" "ecclesia-logo.jpg" "proposal.tex~" "../" "./")
 
  ("/Users/phil/Dropbox/org/" (24718 13243 128502 11000) "test.org~" "test.tex" "work.org~" "#gladstone_uca.org#" "personal.org" "test.tex~" "test.org" "tips.org" "test.pdf" "org-roam.db" "cofcsa.org" "setup.org" "gladstone_uca.tex" "inbox.org" "gladstone_uca.odt" "#test.org#" "ecclesia-logo.jpg" "work.org" ".#work.org" "gladstone_uca.org" "cofcsa.org~" "gladstone_uca.pdf" "../" "./")
 

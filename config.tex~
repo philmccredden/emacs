@@ -1,4 +1,4 @@
-% Created 2021-05-02 Sun 19:30
+% Created 2021-05-02 Sun 19:29
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -31,49 +31,49 @@
 ;; Phil's custom emacs config
 
 \section{Tasks}
-\label{sec:org742f296}
+\label{sec:org7fb837e}
 \subsection{{\bfseries\sffamily DONE} Configure backups to save the files in a central directory}
-\label{sec:orgaea2be5}
+\label{sec:org080689a}
 \subsection{{\bfseries\sffamily TODO} Set a short cut to open the config.org file on windows}
-\label{sec:org7bfd7d9}
+\label{sec:orgeee5b25}
 \subsection{{\bfseries\sffamily DONE} Magit Git interface}
-\label{sec:orge6ba495}
+\label{sec:org692c854}
 \subsection{{\bfseries\sffamily DONE} Which key}
-\label{sec:orgfdab0d9}
+\label{sec:orge1168d7}
 \subsection{{\bfseries\sffamily DONE} figure out easy buffer switching}
-\label{sec:org531e52d}
+\label{sec:org693e33a}
 \subsection{{\bfseries\sffamily DONE} Window Switching}
-\label{sec:org1802fee}
+\label{sec:org6c63072}
 \subsection{{\bfseries\sffamily TODO} Org Mode config}
-\label{sec:org1f6bbcc}
+\label{sec:orgc9b0a73}
 \subsection{{\bfseries\sffamily TODO} org-ref}
-\label{sec:orgbf8e25c}
+\label{sec:orgd56c5d1}
 
 \subsection{{\bfseries\sffamily TODO} deft?}
-\label{sec:org63d9d8c}
+\label{sec:orgc46727b}
 \subsection{{\bfseries\sffamily TODO} Set shortcuts for code blocks}
-\label{sec:org0388d4a}
+\label{sec:orgb37f772}
 \subsection{{\bfseries\sffamily TODO} Elfeed}
-\label{sec:org07d625c}
+\label{sec:orgcf406dc}
 \subsection{{\bfseries\sffamily TODO} Web mode}
-\label{sec:org81c6518}
+\label{sec:org605701c}
 \subsection{{\bfseries\sffamily TODO} Spelling}
-\label{sec:orga5dd5ac}
+\label{sec:org3622496}
 \subsection{{\bfseries\sffamily TODO} Sync bookmarks}
-\label{sec:org3788a95}
+\label{sec:orgb92c252}
 \subsection{{\bfseries\sffamily TODO} Todo states}
-\label{sec:orgab1b01c}
+\label{sec:org63740d7}
 \subsection{{\bfseries\sffamily TODO} Configure backups correctly on windows}
-\label{sec:orgb2c2d41}
+\label{sec:org8fd6840}
 \subsection{{\bfseries\sffamily TODO} Python}
-\label{sec:org2ddd3ac}
+\label{sec:orgbbb6153}
 \subsection{{\bfseries\sffamily TODO} Latex}
-\label{sec:org47f2466}
+\label{sec:org4cc2c23}
 \subsection{{\bfseries\sffamily TODO} Snippets}
-\label{sec:orgac3470d}
+\label{sec:org10ec8c2}
 
 \section{User Interface}
-\label{sec:orgeed2560}
+\label{sec:orgf4e7de5}
 \begin{verbatim}
 					; Highlights the current cursor line
 (global-hl-line-mode t)
@@ -249,7 +249,7 @@
 \end{verbatim}
 
 \section{Projectile}
-\label{sec:org139b525}
+\label{sec:org784cf69}
 \begin{verbatim}
 (use-package projectile
   :diminish projectile-mode
@@ -269,7 +269,7 @@
 \end{verbatim}
 
 \section{Magit}
-\label{sec:orgb54433d}
+\label{sec:org931cf53}
 \begin{verbatim}
 (use-package magit
   :custom
@@ -280,7 +280,7 @@
 
 \end{verbatim}
 \section{org mode}
-\label{sec:org2d3da01}
+\label{sec:org413637d}
 \begin{verbatim}
 (require 'org)
 ;; set up org mobile mode for ipad
@@ -320,7 +320,7 @@
 
 \end{verbatim}
 \section{Switch Window}
-\label{sec:org1f6fcb3}
+\label{sec:orgb702f2c}
 \begin{verbatim}
     ;; easy window switchingo
 (use-package switch-window
@@ -340,7 +340,7 @@
 \end{verbatim}
 
 \section{code blocks}
-\label{sec:org0a7b773}
+\label{sec:org293bcd0}
 \begin{verbatim}
     (setq org-src-fontify-natively t)
 
@@ -351,7 +351,7 @@
 \end{verbatim}
 
 \section{Pdf tools}
-\label{sec:orgb9093a6}
+\label{sec:org993bbc1}
 \begin{verbatim}
 
 ;;; Install epdfinfo via 'brew install pdf-tools --HEAD' and then install the
