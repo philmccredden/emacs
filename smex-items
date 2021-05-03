@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ elfeed-update
  package-install
- pdf-occur-dired-do-search
- pdf-tools-install
- list-packages
- menu-bar--display-line-numbers-mode-relative
- load-theme
- projectile-mode
+ org-capture
+ org-mode
+ buffer-menu
+ magit
+ org-version
 )
 
 ;; ----- smex-data -----
@@ -30,7 +30,13 @@
  (projectile-mode . 1)
  (load-theme . 2)
  (menu-bar--display-line-numbers-mode-relative . 2)
- (package-install . 2)
+ (package-install . 4)
  (pdf-tools-install . 1)
  (pdf-occur-dired-do-search . 1)
+ (org-version . 1)
+ (magit . 2)
+ (buffer-menu . 1)
+ (org-mode . 1)
+ (org-capture . 1)
+ (elfeed-update . 6)
 )

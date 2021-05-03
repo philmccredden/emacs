@@ -282,3 +282,15 @@
 
 ; open pdf in pdftools 
 (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
+
+(use-package elfeed
+  :commands elfeed
+  :config
+  (setq elfeed-feeds
+    '("https://nullprogram.com/feed/"
+      "https://ambrevar.xyz/atom.xml"
+      "https://guix.gnu.org/feeds/blog.atom"
+      "https://valdyas.org/fading/feed/"
+      "https://www.reddit.com/r/emacs/.rss")))
+
+  (global-set-key (kbd "C-x w") 'elfeed)
