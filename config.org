@@ -3,12 +3,13 @@
 * Tasks
 ** DONE Configure backups to save the files in a central directory
 ** TODO Set a short cut to open the config.org file on windows
+** TODO Get Beamer working
 ** TODO Checkout what emacs for writers guy was talking about
    - short cut for last open file
    - page up and down for moving through buffers
    - listing recently open files (this was done through helm)
    - See if you can find his config on github
-  
+     
 ** DONE Magit Git interface
 ** DONE Which key
 ** DONE figure out easy buffer switching
@@ -27,7 +28,7 @@
 ** TODO Python
 ** TODO Latex
 ** TODO Snippets
-
+   
 * User Interface
   #+begin_src emacs-lisp
 					    ; Highlights the current cursor line
@@ -339,7 +340,7 @@
 
   #+end_src
   
-* Elffeed
+* Elfeed
   #+begin_src elisp
 
 (use-package elfeed
@@ -348,10 +349,20 @@
   (setq elfeed-feeds
     '("https://nullprogram.com/feed/"
       "https://ambrevar.xyz/atom.xml"
-      "https://guix.gnu.org/feeds/blog.atom"
       "https://valdyas.org/fading/feed/"
       "https://www.reddit.com/r/emacs/.rss")))
 
   (global-set-key (kbd "C-x w") 'elfeed)
 
+  #+end_src
+
+* Beamer
+  #+begin_src emacs-lisp
+    (require 'ox-latex)
+    (add-to-list 'org-latex-classes
+             '("beamer"
+               "\\documentclass\[presentation\]\{beamer\}"
+               ("\\section\{%s\}" . "\\section*\{%s\}")
+               ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
+               ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
   #+end_src

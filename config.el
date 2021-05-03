@@ -262,6 +262,14 @@
 	 '((emacs-lisp . t)
 	   (python . t)))
 
+(require 'ox-latex)
+(add-to-list 'org-latex-classes
+         '("beamer"
+           "\\documentclass\[presentation\]\{beamer\}"
+           ("\\section\{%s\}" . "\\section*\{%s\}")
+           ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
+           ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
+
 ;;; Install epdfinfo via 'brew install pdf-tools --HEAD' and then install the
 ;;; pdf-tools elisp via the use-package below. To upgrade the epdfinfo
 ;;; server, just do 'brew upgrade pdf-tools' prior to upgrading to newest
@@ -289,7 +297,6 @@
   (setq elfeed-feeds
     '("https://nullprogram.com/feed/"
       "https://ambrevar.xyz/atom.xml"
-      "https://guix.gnu.org/feeds/blog.atom"
       "https://valdyas.org/fading/feed/"
       "https://www.reddit.com/r/emacs/.rss")))
 

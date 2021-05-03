@@ -2,12 +2,12 @@
 ;; ----- smex-history -----
 (
  elfeed-update
+ elfeed-db-unload
  package-install
  org-capture
  org-mode
  buffer-menu
  magit
- org-version
 )
 
 ;; ----- smex-data -----
@@ -38,5 +38,6 @@
  (buffer-menu . 1)
  (org-mode . 1)
  (org-capture . 1)
- (elfeed-update . 6)
+ (elfeed-update . 12)
+ (elfeed-db-unload . 1)
 )
