@@ -1,4 +1,4 @@
-% Created 2021-05-02 Sun 19:29
+% Created 2021-05-02 Sun 20:01
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -31,49 +31,49 @@
 ;; Phil's custom emacs config
 
 \section{Tasks}
-\label{sec:org7fb837e}
+\label{sec:orgd49be45}
 \subsection{{\bfseries\sffamily DONE} Configure backups to save the files in a central directory}
-\label{sec:org080689a}
+\label{sec:org3eeae65}
 \subsection{{\bfseries\sffamily TODO} Set a short cut to open the config.org file on windows}
-\label{sec:orgeee5b25}
+\label{sec:org032e347}
 \subsection{{\bfseries\sffamily DONE} Magit Git interface}
-\label{sec:org692c854}
+\label{sec:org33e023d}
 \subsection{{\bfseries\sffamily DONE} Which key}
-\label{sec:orge1168d7}
+\label{sec:org3f5e506}
 \subsection{{\bfseries\sffamily DONE} figure out easy buffer switching}
-\label{sec:org693e33a}
+\label{sec:org4438c52}
 \subsection{{\bfseries\sffamily DONE} Window Switching}
-\label{sec:org6c63072}
+\label{sec:org452320c}
 \subsection{{\bfseries\sffamily TODO} Org Mode config}
-\label{sec:orgc9b0a73}
+\label{sec:org6525ea0}
 \subsection{{\bfseries\sffamily TODO} org-ref}
-\label{sec:orgd56c5d1}
+\label{sec:org05afe98}
 
 \subsection{{\bfseries\sffamily TODO} deft?}
-\label{sec:orgc46727b}
+\label{sec:org12de133}
 \subsection{{\bfseries\sffamily TODO} Set shortcuts for code blocks}
-\label{sec:orgb37f772}
+\label{sec:org8726da5}
 \subsection{{\bfseries\sffamily TODO} Elfeed}
-\label{sec:orgcf406dc}
+\label{sec:org3dad4c9}
 \subsection{{\bfseries\sffamily TODO} Web mode}
-\label{sec:org605701c}
+\label{sec:org5057c41}
 \subsection{{\bfseries\sffamily TODO} Spelling}
-\label{sec:org3622496}
+\label{sec:org662afa7}
 \subsection{{\bfseries\sffamily TODO} Sync bookmarks}
-\label{sec:orgb92c252}
+\label{sec:orgf9aabd8}
 \subsection{{\bfseries\sffamily TODO} Todo states}
-\label{sec:org63740d7}
+\label{sec:orgf9c5e19}
 \subsection{{\bfseries\sffamily TODO} Configure backups correctly on windows}
-\label{sec:org8fd6840}
+\label{sec:org57f1b37}
 \subsection{{\bfseries\sffamily TODO} Python}
-\label{sec:orgbbb6153}
+\label{sec:orgbf184b2}
 \subsection{{\bfseries\sffamily TODO} Latex}
-\label{sec:org4cc2c23}
+\label{sec:org0068266}
 \subsection{{\bfseries\sffamily TODO} Snippets}
-\label{sec:org10ec8c2}
+\label{sec:org06d8c18}
 
 \section{User Interface}
-\label{sec:orgf4e7de5}
+\label{sec:org2eb40f6}
 \begin{verbatim}
 					; Highlights the current cursor line
 (global-hl-line-mode t)
@@ -83,6 +83,9 @@
 ; open buffers automatically vertically and not horizontal
 (setq split-height-threshold nil)
 (setq split-width-threshold 0)
+
+; retina support for pdftools
+(setq pdf-view-use-scaling t)
 
 (defvar runemacs/default-font-size 140)
 
@@ -249,7 +252,7 @@
 \end{verbatim}
 
 \section{Projectile}
-\label{sec:org784cf69}
+\label{sec:org8ab74dd}
 \begin{verbatim}
 (use-package projectile
   :diminish projectile-mode
@@ -269,7 +272,7 @@
 \end{verbatim}
 
 \section{Magit}
-\label{sec:org931cf53}
+\label{sec:org6c733e9}
 \begin{verbatim}
 (use-package magit
   :custom
@@ -280,7 +283,7 @@
 
 \end{verbatim}
 \section{org mode}
-\label{sec:org413637d}
+\label{sec:orgd72d571}
 \begin{verbatim}
 (require 'org)
 ;; set up org mobile mode for ipad
@@ -320,7 +323,7 @@
 
 \end{verbatim}
 \section{Switch Window}
-\label{sec:orgb702f2c}
+\label{sec:org855ab57}
 \begin{verbatim}
     ;; easy window switchingo
 (use-package switch-window
@@ -340,7 +343,7 @@
 \end{verbatim}
 
 \section{code blocks}
-\label{sec:org293bcd0}
+\label{sec:org3728c6a}
 \begin{verbatim}
     (setq org-src-fontify-natively t)
 
@@ -351,7 +354,7 @@
 \end{verbatim}
 
 \section{Pdf tools}
-\label{sec:org993bbc1}
+\label{sec:org676d41e}
 \begin{verbatim}
 
 ;;; Install epdfinfo via 'brew install pdf-tools --HEAD' and then install the
@@ -361,19 +364,19 @@
 ;;; up, just do 'brew uninstall pdf-tools', wipe out the elpa
 ;;; pdf-tools package and reinstall both as at the start.
 
-(use-package pdf-tools
-    :ensure t
-    :config
-    (custom-set-variables
-      '(pdf-tools-handle-upgrades nil)) ; Use brew upgrade pdf-tools instead.
-   (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo"))
-(pdf-tools-install)
+;(use-package pdf-tools
+; 	:ensure t
+;	:config
+;	(custom-set-variables
+;	  '(pdf-tools-handle-upgrades nil)) ; Use brew upgrade pdf-tools instead.
+;   (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo"))
+;(pdf-tools-install)
 
-(use-package org-pdftools
-  :hook (org-mode . org-pdftools-setup-link))
+;(use-package org-pdftools
+;  :hook (org-mode . org-pdftools-setup-link))
 
 ; open pdf in pdftools 
-(add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
+;(add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
 
 \end{verbatim}
 \end{document}

@@ -3,6 +3,13 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+; open buffers automatically vertically and not horizontal
+(setq split-height-threshold nil)
+(setq split-width-threshold 0)
+
+; retina support for pdftools
+(setq pdf-view-use-scaling t)
+
 (defvar runemacs/default-font-size 140)
 
 (setq inhibit-startup-message t)
@@ -197,7 +204,6 @@
 (setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
-(require 'org-tempo)
 
 (global-visual-line-mode t)
 (defun efs/org-mode-setup ()
@@ -239,6 +245,16 @@
   (setq switch-window-qwerty-shortcuts '("x" "a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "r" "u" "i" "o" "q" "t" "y" "p"))
   (setq switch-window-increase 3))
 
+;; This is needed as of Org 9.2
+(require 'org-tempo)
+
+(add-to-list 'org-structure-template-alist '("sh" . "src sh"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+(add-to-list 'org-structure-template-alist '("yaml" . "src yaml"))
+(add-to-list 'org-structure-template-alist '("json" . "src json"))
+(add-to-list 'org-structure-template-alist '("la" . "src latex"))
+
 (setq org-src-fontify-natively t)
 
 (org-babel-do-load-languages
@@ -253,16 +269,16 @@
 ;;; up, just do 'brew uninstall pdf-tools', wipe out the elpa
 ;;; pdf-tools package and reinstall both as at the start.
 
-(use-package pdf-tools
-    :ensure t
-    :config
-    (custom-set-variables
-      '(pdf-tools-handle-upgrades nil)) ; Use brew upgrade pdf-tools instead.
-   (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo"))
-(pdf-tools-install)
+;(use-package pdf-tools
+; 	:ensure t
+;	:config
+;	(custom-set-variables
+;	  '(pdf-tools-handle-upgrades nil)) ; Use brew upgrade pdf-tools instead.
+;   (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo"))
+;(pdf-tools-install)
 
-(use-package org-pdftools
-  :hook (org-mode . org-pdftools-setup-link))
+;(use-package org-pdftools
+;  :hook (org-mode . org-pdftools-setup-link))
 
 ; open pdf in pdftools 
 (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
