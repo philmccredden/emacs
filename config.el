@@ -1,6 +1,9 @@
 ; Highlights the current cursor line
 (global-hl-line-mode t)
 
+; this will not require the yes to the reload.
+(setq revert-without-query '(".pdf"))
+
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ; open buffers automatically vertically and not horizontal
@@ -10,7 +13,7 @@
 ; retina support for pdftools
 (setq pdf-view-use-scaling t)
 
-(defvar runemacs/default-font-size 140)
+(defvar runemacs/default-font-size 160)
 
 (setq inhibit-startup-message t)
 
@@ -23,7 +26,7 @@
 ;; Set up the visible bell
 (setq visible-bell t)
 
-(set-face-attribute 'default nil :font "Menlo" :height runemacs/default-font-size)
+(set-face-attribute 'default nil :font "Source Code Pro" :height runemacs/default-font-size)
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -195,39 +198,52 @@
 (use-package forge)
 
 (require 'org)
-;; set up org mobile mode for ipad
-(setq org-directory "~/Dropbox/org")
+		    ;; set up org mobile mode for ipad
+		    (setq org-directory "~/Dropbox/org")
 
-(setq org-agenda-files (list "~/Dropbox/org/work.org"
-			 "~/Dropbox/org/personal.org"))
+		    (setq org-agenda-files (list "~/Dropbox/org/work.org"
+					     "~/Dropbox/org/personal.org"))
 
-(setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
-(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+		    (setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
+		    (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 
-(global-visual-line-mode t)
-(defun efs/org-mode-setup ()
-  (org-indent-mode)
-  (variable-pitch-mode 1)
-  (visual-line-mode 1))
+		    (global-visual-line-mode t)
+		    (defun efs/org-mode-setup ()
+		      (org-indent-mode)
+		      (variable-pitch-mode 1)
+		      (visual-line-mode 1))
 
-(use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+		    (use-package org-bullets
+		      :after org
+		      :hook (org-mode . org-bullets-mode)
+		      :custom
+		      (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-(defun efs/org-mode-visual-fill ()
-  (setq visual-fill-column-width 100
-	visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))
+		    (defun efs/org-mode-visual-fill ()
+		      (setq visual-fill-column-width 100
+			    visual-fill-column-center-text t)
+		      (visual-fill-column-mode 1))
 
-(use-package visual-fill-column
-  :hook (org-mode . efs/org-mode-visual-fill))
-(defun efs/org-mode-setup ()
-  (org-indent-mode)
-  (variable-pitch-mode 1)
-  (visual-line-mode 1))
+		    (use-package visual-fill-column
+		      :hook (org-mode . efs/org-mode-visual-fill))
+		    (defun efs/org-mode-setup ()
+		      (org-indent-mode)
+		      (variable-pitch-mode 1)
+		      (visual-line-mode 1))
+
+		   ; Startup with content in folder state
+		   (setq org-startup-folded t)
+
+	    ; Todo Keywords
+	    (setq org-todo-keywords
+		  (quote
+		    ((sequence "TODO" "ACTIVE" "HOLD" "WAITING" "|" "DONE" "CANCELED"))))
+; colors for todo states
+;    (setq org-todo-keyword-faces
+;	  '(("PROG" . "orange") ("PAUS" . "magenta") ("CANC" . "red") ("DONE" . "green"))
+		; turn spelling checking on for org mode
+		(add-hook 'org-mode-hook 'turn-on-flyspell)
 
 ;; easy window switchingo
 (use-package switch-window

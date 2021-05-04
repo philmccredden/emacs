@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- elfeed-update
- elfeed-db-unload
  package-install
+ org-version
+ org-agenda
+ eval-buffer
+ recover-this-file
+ elfeed-update
  org-capture
- org-mode
- buffer-menu
- magit
 )
 
 ;; ----- smex-data -----
@@ -19,7 +19,7 @@
  (rename-file . 1)
  (rename-buffer . 1)
  (make-directory . 1)
- (org-agenda . 19)
+ (org-agenda . 21)
  (org-schedule . 2)
  (org-insert-link . 1)
  (org-publish . 1)
@@ -30,14 +30,16 @@
  (projectile-mode . 1)
  (load-theme . 2)
  (menu-bar--display-line-numbers-mode-relative . 2)
- (package-install . 4)
+ (package-install . 6)
  (pdf-tools-install . 1)
  (pdf-occur-dired-do-search . 1)
- (org-version . 1)
+ (org-version . 2)
  (magit . 2)
  (buffer-menu . 1)
  (org-mode . 1)
  (org-capture . 1)
  (elfeed-update . 13)
  (elfeed-db-unload . 1)
+ (recover-this-file . 1)
+ (eval-buffer . 1)
 )
