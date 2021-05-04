@@ -1,4 +1,4 @@
-% Created 2021-05-02 Sun 20:01
+% Created 2021-05-04 Tue 12:21
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -31,52 +31,66 @@
 ;; Phil's custom emacs config
 
 \section{Tasks}
-\label{sec:orgd49be45}
+\label{sec:org8207caa}
 \subsection{{\bfseries\sffamily DONE} Configure backups to save the files in a central directory}
-\label{sec:org3eeae65}
+\label{sec:orgf07f85d}
 \subsection{{\bfseries\sffamily TODO} Set a short cut to open the config.org file on windows}
-\label{sec:org032e347}
+\label{sec:org485f30f}
+\subsection{{\bfseries\sffamily TODO} Get Beamer working}
+\label{sec:org26dd41a}
+\subsection{{\bfseries\sffamily TODO} Checkout what emacs for writers guy was talking about}
+\label{sec:orgfe84963}
+\begin{itemize}
+\item short cut for last open file
+\item page up and down for moving through buffers
+\item listing recently open files (this was done through helm)
+\item See if you can find his config on github
+\end{itemize}
+
 \subsection{{\bfseries\sffamily DONE} Magit Git interface}
-\label{sec:org33e023d}
+\label{sec:org0c7c477}
 \subsection{{\bfseries\sffamily DONE} Which key}
-\label{sec:org3f5e506}
+\label{sec:org1ab39a2}
 \subsection{{\bfseries\sffamily DONE} figure out easy buffer switching}
-\label{sec:org4438c52}
+\label{sec:org79e7ac6}
 \subsection{{\bfseries\sffamily DONE} Window Switching}
-\label{sec:org452320c}
+\label{sec:org2b7b896}
 \subsection{{\bfseries\sffamily TODO} Org Mode config}
-\label{sec:org6525ea0}
+\label{sec:orge5f83b0}
 \subsection{{\bfseries\sffamily TODO} org-ref}
-\label{sec:org05afe98}
+\label{sec:orgc3005b3}
 
 \subsection{{\bfseries\sffamily TODO} deft?}
-\label{sec:org12de133}
-\subsection{{\bfseries\sffamily TODO} Set shortcuts for code blocks}
-\label{sec:org8726da5}
+\label{sec:org1ec070e}
+\subsection{{\bfseries\sffamily DONE} Set shortcuts for code blocks}
+\label{sec:org60f2702}
 \subsection{{\bfseries\sffamily TODO} Elfeed}
-\label{sec:org3dad4c9}
+\label{sec:org48d0531}
 \subsection{{\bfseries\sffamily TODO} Web mode}
-\label{sec:org5057c41}
+\label{sec:org5d94d95}
 \subsection{{\bfseries\sffamily TODO} Spelling}
-\label{sec:org662afa7}
+\label{sec:orgee82b1b}
 \subsection{{\bfseries\sffamily TODO} Sync bookmarks}
-\label{sec:orgf9aabd8}
+\label{sec:orgf6de9e1}
 \subsection{{\bfseries\sffamily TODO} Todo states}
-\label{sec:orgf9c5e19}
+\label{sec:orgd56e685}
 \subsection{{\bfseries\sffamily TODO} Configure backups correctly on windows}
-\label{sec:org57f1b37}
+\label{sec:org82fd9e8}
 \subsection{{\bfseries\sffamily TODO} Python}
-\label{sec:orgbf184b2}
+\label{sec:org1d34c7f}
 \subsection{{\bfseries\sffamily TODO} Latex}
-\label{sec:org0068266}
+\label{sec:org00d2d5b}
 \subsection{{\bfseries\sffamily TODO} Snippets}
-\label{sec:org06d8c18}
+\label{sec:orgd65a12d}
 
 \section{User Interface}
-\label{sec:org2eb40f6}
+\label{sec:orgfe39143}
 \begin{verbatim}
 					; Highlights the current cursor line
 (global-hl-line-mode t)
+
+; this will not require the yes to the reload
+(setq revert-without-query '(".pdf"))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -252,7 +266,7 @@
 \end{verbatim}
 
 \section{Projectile}
-\label{sec:org8ab74dd}
+\label{sec:orgbeef2cc}
 \begin{verbatim}
 (use-package projectile
   :diminish projectile-mode
@@ -272,7 +286,7 @@
 \end{verbatim}
 
 \section{Magit}
-\label{sec:org6c733e9}
+\label{sec:org24f6f7c}
 \begin{verbatim}
 (use-package magit
   :custom
@@ -283,7 +297,7 @@
 
 \end{verbatim}
 \section{org mode}
-\label{sec:orgd72d571}
+\label{sec:orgbf5c4fb}
 \begin{verbatim}
 (require 'org)
 ;; set up org mobile mode for ipad
@@ -295,7 +309,6 @@
 (setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
-(require 'org-tempo)
 
 (global-visual-line-mode t)
 (defun efs/org-mode-setup ()
@@ -323,7 +336,7 @@
 
 \end{verbatim}
 \section{Switch Window}
-\label{sec:org855ab57}
+\label{sec:org30956b2}
 \begin{verbatim}
     ;; easy window switchingo
 (use-package switch-window
@@ -342,10 +355,21 @@
   (setq switch-window-increase 3))
 \end{verbatim}
 
-\section{code blocks}
-\label{sec:org3728c6a}
+\section{Code Blocks}
+\label{sec:org9f7fe34}
 \begin{verbatim}
-    (setq org-src-fontify-natively t)
+
+;; This is needed as of Org 9.2
+(require 'org-tempo)
+
+(add-to-list 'org-structure-template-alist '("sh" . "src sh"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+(add-to-list 'org-structure-template-alist '("yaml" . "src yaml"))
+(add-to-list 'org-structure-template-alist '("json" . "src json"))
+(add-to-list 'org-structure-template-alist '("la" . "src latex"))
+
+(setq org-src-fontify-natively t)
 
 (org-babel-do-load-languages
 	 'org-babel-load-languages
@@ -354,7 +378,7 @@
 \end{verbatim}
 
 \section{Pdf tools}
-\label{sec:org676d41e}
+\label{sec:org2a0b5a8}
 \begin{verbatim}
 
 ;;; Install epdfinfo via 'brew install pdf-tools --HEAD' and then install the
@@ -376,7 +400,36 @@
 ;  :hook (org-mode . org-pdftools-setup-link))
 
 ; open pdf in pdftools 
-;(add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
+(add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
 
+\end{verbatim}
+
+\section{Elfeed}
+\label{sec:org1f7b31c}
+\begin{verbatim}
+
+(use-package elfeed
+  :commands elfeed
+  :config
+  (setq elfeed-feeds
+    '("https://nullprogram.com/feed/"
+      "https://ambrevar.xyz/atom.xml"
+      "https://valdyas.org/fading/feed/"
+      "https://www.reddit.com/r/emacs/.rss")))
+
+  (global-set-key (kbd "C-x w") 'elfeed)
+
+\end{verbatim}
+
+\section{Beamer}
+\label{sec:org137955f}
+\begin{verbatim}
+(require 'ox-latex)
+(add-to-list 'org-latex-classes
+	 '("beamer"
+	   "\\documentclass\[presentation\]\{beamer\}"
+	   ("\\section\{%s\}" . "\\section*\{%s\}")
+	   ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
+	   ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
 \end{verbatim}
 \end{document}

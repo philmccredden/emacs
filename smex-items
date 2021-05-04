@@ -38,6 +38,6 @@
  (buffer-menu . 1)
  (org-mode . 1)
  (org-capture . 1)
- (elfeed-update . 12)
+ (elfeed-update . 13)
  (elfeed-db-unload . 1)
 )

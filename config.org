@@ -34,6 +34,9 @@
 					    ; Highlights the current cursor line
     (global-hl-line-mode t)
 
+    ; this will not require the yes to the reload.
+    (setq revert-without-query '(".pdf"))
+
     (global-set-key (kbd "C-x C-b") 'ibuffer)
 
     ; open buffers automatically vertically and not horizontal
