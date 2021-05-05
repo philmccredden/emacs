@@ -10,9 +10,6 @@
 (setq split-height-threshold nil)
 (setq split-width-threshold 0)
 
-; retina support for pdftools
-(setq pdf-view-use-scaling t)
-
 (defvar runemacs/default-font-size 160)
 
 (setq inhibit-startup-message t)
@@ -198,52 +195,50 @@
 (use-package forge)
 
 (require 'org)
-		    ;; set up org mobile mode for ipad
-		    (setq org-directory "~/Dropbox/org")
+			;; set up org mobile mode for ipad
+			(setq org-directory "~/Dropbox/org")
 
-		    (setq org-agenda-files (list "~/Dropbox/org/work.org"
-					     "~/Dropbox/org/personal.org"))
+			(setq org-agenda-files (list "~/Dropbox/org/work.org"
+						 "~/Dropbox/org/personal.org"))
 
-		    (setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
-		    (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+			(setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
+			(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 
-		    (global-visual-line-mode t)
-		    (defun efs/org-mode-setup ()
-		      (org-indent-mode)
-		      (variable-pitch-mode 1)
-		      (visual-line-mode 1))
+			(global-visual-line-mode t)
+			(defun efs/org-mode-setup ()
+			  (org-indent-mode)
+			  (variable-pitch-mode 1)
+			  (visual-line-mode 1))
 
-		    (use-package org-bullets
-		      :after org
-		      :hook (org-mode . org-bullets-mode)
-		      :custom
-		      (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+			(use-package org-bullets
+			  :after org
+			  :hook (org-mode . org-bullets-mode)
+			  :custom
+			  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-		    (defun efs/org-mode-visual-fill ()
-		      (setq visual-fill-column-width 100
-			    visual-fill-column-center-text t)
-		      (visual-fill-column-mode 1))
+			(defun efs/org-mode-visual-fill ()
+			  (setq visual-fill-column-width 100
+				visual-fill-column-center-text t)
+			  (visual-fill-column-mode 1))
 
-		    (use-package visual-fill-column
-		      :hook (org-mode . efs/org-mode-visual-fill))
-		    (defun efs/org-mode-setup ()
-		      (org-indent-mode)
-		      (variable-pitch-mode 1)
-		      (visual-line-mode 1))
+			(use-package visual-fill-column
+			  :hook (org-mode . efs/org-mode-visual-fill))
+			(defun efs/org-mode-setup ()
+			  (org-indent-mode)
+			  (variable-pitch-mode 1)
+			  (visual-line-mode 1))
 
-		   ; Startup with content in folder state
-		   (setq org-startup-folded t)
+		       ; Startup with content in folder state
+		       (setq org-startup-folded t)
 
-	    ; Todo Keywords
-	    (setq org-todo-keywords
-		  (quote
-		    ((sequence "TODO" "ACTIVE" "HOLD" "WAITING" "|" "DONE" "CANCELED"))))
-; colors for todo states
+		; Todo Keywords
+		(setq org-todo-keywords
+		      (quote
+			((sequence "TODO" "ACTIVE" "HOLD" "WAITING" "|" "DONE" "CANCELED"))))
+    ; colors for todo states
 ;    (setq org-todo-keyword-faces
-;	  '(("PROG" . "orange") ("PAUS" . "magenta") ("CANC" . "red") ("DONE" . "green"))
-		; turn spelling checking on for org mode
-		(add-hook 'org-mode-hook 'turn-on-flyspell)
+;	  '(("ACTIVE" . "orange") ("HOLD" . "magenta") ("CANCELED" . "red") ("WAITING" . "blue") ("DONE" . "green"))
 
 ;; easy window switchingo
 (use-package switch-window
@@ -285,6 +280,20 @@
            ("\\section\{%s\}" . "\\section*\{%s\}")
            ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
            ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
+
+(setq ispell-program-name "/usr/local/bin/aspell")
+; for org mode
+(add-hook 'org-mode-hook 'flyspell-mode)
+; comments in programming mode
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
+; location to place backups
+(setq backup-directory-alist `(("." . "~/Dropbox/emacs/backups")))
+
+(setq delete-old-versions t
+  kept-new-versions 6
+  kept-old-versions 2
+  version-control t)
 
 ;;; Install epdfinfo via 'brew install pdf-tools --HEAD' and then install the
 ;;; pdf-tools elisp via the use-package below. To upgrade the epdfinfo

@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- package-install
- org-version
- org-agenda
+ flyspell-buffer
+ ispell
+ flyspell-mode
  eval-buffer
- recover-this-file
- elfeed-update
- org-capture
+ org-agenda
+ calc-date
+ package-install
 )
 
 ;; ----- smex-data -----
@@ -19,7 +19,7 @@
  (rename-file . 1)
  (rename-buffer . 1)
  (make-directory . 1)
- (org-agenda . 21)
+ (org-agenda . 22)
  (org-schedule . 2)
  (org-insert-link . 1)
  (org-publish . 1)
@@ -41,5 +41,9 @@
  (elfeed-update . 13)
  (elfeed-db-unload . 1)
  (recover-this-file . 1)
- (eval-buffer . 1)
+ (eval-buffer . 2)
+ (calc-date . 1)
+ (flyspell-mode . 4)
+ (ispell . 1)
+ (flyspell-buffer . 1)
 )

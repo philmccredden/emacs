@@ -1,4 +1,4 @@
-% Created 2021-05-04 Tue 12:21
+% Created 2021-05-05 Wed 13:03
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -28,18 +28,22 @@
 
 \tableofcontents
 
-;; Phil's custom emacs config
+;; Phil's custom Emacs config
 
 \section{Tasks}
-\label{sec:orgdac4843}
+\label{sec:orgd9b47c9}
 \subsection{{\bfseries\sffamily DONE} Configure backups to save the files in a central directory}
-\label{sec:orgc7b05f0}
-\subsection{{\bfseries\sffamily TODO} Set a short cut to open the config.org file on windows}
-\label{sec:org5bd90b4}
-\subsection{{\bfseries\sffamily TODO} Get Beamer working}
-\label{sec:orgf03be37}
+\label{sec:org22ee5b8}
+\subsection{{\bfseries\sffamily TODO} set backups to a set directory in dropbox}
+\label{sec:orgaf495ce}
+\subsection{{\bfseries\sffamily TODO} Snippets}
+\label{sec:orgc255f00}
+
+\subsection{{\bfseries\sffamily TODO} org-ref}
+\label{sec:org0d4b7bc}
+
 \subsection{{\bfseries\sffamily TODO} Checkout what emacs for writers guy was talking about}
-\label{sec:org2ecfa45}
+\label{sec:orgfa18f81}
 \begin{itemize}
 \item short cut for last open file
 \item page up and down for moving through buffers
@@ -47,44 +51,42 @@
 \item See if you can find his config on github
 \end{itemize}
 
+\subsection{{\bfseries\sffamily TODO} Get Beamer working}
+\label{sec:org982a9db}
 \subsection{{\bfseries\sffamily DONE} Magit Git interface}
-\label{sec:org6827c3e}
+\label{sec:org959001f}
 \subsection{{\bfseries\sffamily DONE} Which key}
-\label{sec:orgeb2e122}
+\label{sec:org8f35428}
 \subsection{{\bfseries\sffamily DONE} figure out easy buffer switching}
-\label{sec:orgc853a3c}
+\label{sec:orge6aa78b}
 \subsection{{\bfseries\sffamily DONE} Window Switching}
-\label{sec:orgb9ec37c}
+\label{sec:orgd6af4b9}
 \subsection{{\bfseries\sffamily TODO} Org Mode config}
-\label{sec:orgec9801c}
-\subsection{{\bfseries\sffamily TODO} org-ref}
-\label{sec:org7475a15}
-
-\subsection{{\bfseries\sffamily TODO} deft?}
-\label{sec:org4758486}
+\label{sec:org0f5e02f}
 \subsection{{\bfseries\sffamily DONE} Set shortcuts for code blocks}
-\label{sec:orgb0928dd}
-\subsection{{\bfseries\sffamily TODO} Elfeed}
-\label{sec:org5f6ecf8}
+\label{sec:org50d0817}
+\subsection{{\bfseries\sffamily ACTIVE} Elfeed - Setup org file for feeds}
+\label{sec:orgf8694e4}
 \subsection{{\bfseries\sffamily TODO} Web mode}
-\label{sec:orge127319}
-\subsection{{\bfseries\sffamily TODO} Spelling}
-\label{sec:org4326f2b}
+\label{sec:org124aa64}
+\subsection{{\bfseries\sffamily DONE} Spelling}
+\label{sec:org0845a15}
 \subsection{{\bfseries\sffamily TODO} Sync bookmarks}
-\label{sec:org16062d6}
-\subsection{{\bfseries\sffamily TODO} Todo states}
-\label{sec:orgf03673f}
+\label{sec:orgbecaabc}
+\subsection{{\bfseries\sffamily DONE} Todo states}
+\label{sec:orgb5ab303}
 \subsection{{\bfseries\sffamily TODO} Configure backups correctly on windows}
-\label{sec:org7c31823}
+\label{sec:org981f47d}
 \subsection{{\bfseries\sffamily TODO} Python}
-\label{sec:org899c7c7}
+\label{sec:org2bbcde8}
 \subsection{{\bfseries\sffamily TODO} Latex}
-\label{sec:org10937ea}
-\subsection{{\bfseries\sffamily TODO} Snippets}
-\label{sec:orgf5a3591}
-
+\label{sec:org5eece41}
+\subsection{{\bfseries\sffamily TODO} deft?}
+\label{sec:orgba9a0f9}
+\subsection{{\bfseries\sffamily TODO} Set a short cut to open the config.org file on windows}
+\label{sec:org872fb66}
 \section{User Interface}
-\label{sec:org08be2ea}
+\label{sec:org875d8ad}
 \begin{verbatim}
 					; Highlights the current cursor line
 (global-hl-line-mode t)
@@ -99,9 +101,9 @@
 (setq split-width-threshold 0)
 
 ; retina support for pdftools
-(setq pdf-view-use-scaling t)
+;(setq pdf-view-use-scaling t)
 
-(defvar runemacs/default-font-size 140)
+(defvar runemacs/default-font-size 160)
 
 (setq inhibit-startup-message t)
 
@@ -114,7 +116,7 @@
 ;; Set up the visible bell
 (setq visible-bell t)
 
-(set-face-attribute 'default nil :font "Menlo" :height runemacs/default-font-size)
+(set-face-attribute 'default nil :font "Source Code Pro" :height runemacs/default-font-size)
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -266,7 +268,7 @@
 \end{verbatim}
 
 \section{Projectile}
-\label{sec:org37e570d}
+\label{sec:orge3ea0ca}
 \begin{verbatim}
 (use-package projectile
   :diminish projectile-mode
@@ -286,7 +288,7 @@
 \end{verbatim}
 
 \section{Magit}
-\label{sec:org7ff91b8}
+\label{sec:org134c04d}
 \begin{verbatim}
 (use-package magit
   :custom
@@ -297,46 +299,57 @@
 
 \end{verbatim}
 \section{org mode}
-\label{sec:org0eaa5d5}
+\label{sec:org41e6ce2}
 \begin{verbatim}
-(require 'org)
-;; set up org mobile mode for ipad
-(setq org-directory "~/Dropbox/org")
+			(require 'org)
+			;; set up org mobile mode for ipad
+			(setq org-directory "~/Dropbox/org")
 
-(setq org-agenda-files (list "~/Dropbox/org/work.org"
-			 "~/Dropbox/org/personal.org"))
+			(setq org-agenda-files (list "~/Dropbox/org/work.org"
+						 "~/Dropbox/org/personal.org"))
 
-(setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
-(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+			(setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
+			(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 
-(global-visual-line-mode t)
-(defun efs/org-mode-setup ()
-  (org-indent-mode)
-  (variable-pitch-mode 1)
-  (visual-line-mode 1))
+			(global-visual-line-mode t)
+			(defun efs/org-mode-setup ()
+			  (org-indent-mode)
+			  (variable-pitch-mode 1)
+			  (visual-line-mode 1))
 
-(use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+			(use-package org-bullets
+			  :after org
+			  :hook (org-mode . org-bullets-mode)
+			  :custom
+			  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-(defun efs/org-mode-visual-fill ()
-  (setq visual-fill-column-width 100
-	visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))
+			(defun efs/org-mode-visual-fill ()
+			  (setq visual-fill-column-width 100
+				visual-fill-column-center-text t)
+			  (visual-fill-column-mode 1))
 
-(use-package visual-fill-column
-  :hook (org-mode . efs/org-mode-visual-fill))
-(defun efs/org-mode-setup ()
-  (org-indent-mode)
-  (variable-pitch-mode 1)
-  (visual-line-mode 1))
+			(use-package visual-fill-column
+			  :hook (org-mode . efs/org-mode-visual-fill))
+			(defun efs/org-mode-setup ()
+			  (org-indent-mode)
+			  (variable-pitch-mode 1)
+			  (visual-line-mode 1))
+
+		       ; Startup with content in folder state
+		       (setq org-startup-folded t)
+
+		; Todo Keywords
+		(setq org-todo-keywords
+		      (quote
+			((sequence "TODO" "ACTIVE" "HOLD" "WAITING" "|" "DONE" "CANCELED"))))
+    ; colors for todo states
+;    (setq org-todo-keyword-faces
+;	  '(("ACTIVE" . "orange") ("HOLD" . "magenta") ("CANCELED" . "red") ("WAITING" . "blue") ("DONE" . "green"))
 
 \end{verbatim}
 \section{Switch Window}
-\label{sec:org4f90d53}
+\label{sec:orgcbd6d12}
 \begin{verbatim}
     ;; easy window switchingo
 (use-package switch-window
@@ -356,7 +369,7 @@
 \end{verbatim}
 
 \section{Code Blocks}
-\label{sec:orgef412a9}
+\label{sec:org116390d}
 \begin{verbatim}
 
 ;; This is needed as of Org 9.2
@@ -378,7 +391,7 @@
 \end{verbatim}
 
 \section{Pdf tools}
-\label{sec:org854e1cc}
+\label{sec:orgc63855f}
 \begin{verbatim}
 
 ;;; Install epdfinfo via 'brew install pdf-tools --HEAD' and then install the
@@ -405,7 +418,7 @@
 \end{verbatim}
 
 \section{Elfeed}
-\label{sec:orgaf0017b}
+\label{sec:orgdb9aab3}
 \begin{verbatim}
 
 (use-package elfeed
@@ -422,7 +435,8 @@
 \end{verbatim}
 
 \section{Beamer}
-\label{sec:org96a99bd}
+\label{sec:org65dab9b}
+
 \begin{verbatim}
 (require 'ox-latex)
 (add-to-list 'org-latex-classes
@@ -431,5 +445,15 @@
 	   ("\\section\{%s\}" . "\\section*\{%s\}")
 	   ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
 	   ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
+\end{verbatim}
+
+\section{Spelling}
+\label{sec:org37545e8}
+\begin{verbatim}
+(setq ispell-program-name "/usr/local/bin/aspell")
+; for org mode
+(add-hook 'org-mode-hook 'flyspell-mode)
+; comments in programming mode
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 \end{verbatim}
 \end{document}

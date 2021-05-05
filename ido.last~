@@ -23,6 +23,8 @@
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/philmccredden/.emacs.d/" (24721 62437 669102 315000) ".git/" "bookmarks~" "elpa/" "recentf" "config.tex~" "bookmarks" "init.el" "auto-save-list/" "config.el" "config.pdf" "transient/" "projectile-bookmarks.eld" "ido.last~" "config.org" "eshell/" "smex-items" "config.tex" "ido.last" "forge-database.sqlite" "../" "./")
+
  ("/Users/phil/.emacs.d/" (24719 56075 131562 273000) ".git/" "bookmarks~" "elpa/" "recentf" "config.tex~" "bookmarks" "init.el" "url/" "auto-save-list/" "config.el" "config.pdf" "transient/" "projectile-bookmarks.eld" "ido.last~" "config.org" "eshell/" "smex-items" "config.tex" "ido.last" "forge-database.sqlite" "../" "./")
 
  ("/Users/phil/" (24719 56085 984955 142000) "test.org~" ".zsh_sessions/" ".viminfo" ".bash_history" ".mume/" "test.tex" ".gvimrc" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".oh-my-zsh/" ".Xauthority" ".zcompdump-MacBook Pro-5.8" ".kite/" ".bash_profile" "zsh/" ".vscode/" ".mono/" ".newsrc-dribble" ".pyenv/" "Documents/" "scripts-old/" ".npm/" "#.notes#" ".zcompdump" ".yabairc" ".Trash/" "Dropbox/" "Applications/" ".vimrc" "Movies/" "test.org" "scripts/" ".RData" "test.rmd" "News/" "neovim-mac/" ".dropbox/" ".fzf.bash" "Public/" ".iterm2/" ".fzf.zsh" "test.html" "test.pdf" ".elfeed/" ".emacs.d/" ".dotfiles/" "Zotero/" ".doom.d/" ".notion-enhancer/" "Library/" "Desktop/" ".iterm2_shell_integration.zsh" ".zsh_history" "DawnOfMan/" "~:.emacs.d:Emacs.org" ".zprofile" ".atom/" ".pylint.d/" "Pictures/" ".local/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".bashrc" "test/" ".CFUserTextEncoding" ".tmux.conf" ".r/" ".DS_Store" ".vim/" "Databases/" "Music/" ".config/" "vim/" ".Rhistory" "../" "./")

@@ -31,15 +31,15 @@
 ;; Phil's custom emacs config
 
 \section{Tasks}
-\label{sec:org8207caa}
+\label{sec:orgdac4843}
 \subsection{{\bfseries\sffamily DONE} Configure backups to save the files in a central directory}
-\label{sec:orgf07f85d}
+\label{sec:orgc7b05f0}
 \subsection{{\bfseries\sffamily TODO} Set a short cut to open the config.org file on windows}
-\label{sec:org485f30f}
+\label{sec:org5bd90b4}
 \subsection{{\bfseries\sffamily TODO} Get Beamer working}
-\label{sec:org26dd41a}
+\label{sec:orgf03be37}
 \subsection{{\bfseries\sffamily TODO} Checkout what emacs for writers guy was talking about}
-\label{sec:orgfe84963}
+\label{sec:org2ecfa45}
 \begin{itemize}
 \item short cut for last open file
 \item page up and down for moving through buffers
@@ -48,48 +48,48 @@
 \end{itemize}
 
 \subsection{{\bfseries\sffamily DONE} Magit Git interface}
-\label{sec:org0c7c477}
+\label{sec:org6827c3e}
 \subsection{{\bfseries\sffamily DONE} Which key}
-\label{sec:org1ab39a2}
+\label{sec:orgeb2e122}
 \subsection{{\bfseries\sffamily DONE} figure out easy buffer switching}
-\label{sec:org79e7ac6}
+\label{sec:orgc853a3c}
 \subsection{{\bfseries\sffamily DONE} Window Switching}
-\label{sec:org2b7b896}
+\label{sec:orgb9ec37c}
 \subsection{{\bfseries\sffamily TODO} Org Mode config}
-\label{sec:orge5f83b0}
+\label{sec:orgec9801c}
 \subsection{{\bfseries\sffamily TODO} org-ref}
-\label{sec:orgc3005b3}
+\label{sec:org7475a15}
 
 \subsection{{\bfseries\sffamily TODO} deft?}
-\label{sec:org1ec070e}
+\label{sec:org4758486}
 \subsection{{\bfseries\sffamily DONE} Set shortcuts for code blocks}
-\label{sec:org60f2702}
+\label{sec:orgb0928dd}
 \subsection{{\bfseries\sffamily TODO} Elfeed}
-\label{sec:org48d0531}
+\label{sec:org5f6ecf8}
 \subsection{{\bfseries\sffamily TODO} Web mode}
-\label{sec:org5d94d95}
+\label{sec:orge127319}
 \subsection{{\bfseries\sffamily TODO} Spelling}
-\label{sec:orgee82b1b}
+\label{sec:org4326f2b}
 \subsection{{\bfseries\sffamily TODO} Sync bookmarks}
-\label{sec:orgf6de9e1}
+\label{sec:org16062d6}
 \subsection{{\bfseries\sffamily TODO} Todo states}
-\label{sec:orgd56e685}
+\label{sec:orgf03673f}
 \subsection{{\bfseries\sffamily TODO} Configure backups correctly on windows}
-\label{sec:org82fd9e8}
+\label{sec:org7c31823}
 \subsection{{\bfseries\sffamily TODO} Python}
-\label{sec:org1d34c7f}
+\label{sec:org899c7c7}
 \subsection{{\bfseries\sffamily TODO} Latex}
-\label{sec:org00d2d5b}
+\label{sec:org10937ea}
 \subsection{{\bfseries\sffamily TODO} Snippets}
-\label{sec:orgd65a12d}
+\label{sec:orgf5a3591}
 
 \section{User Interface}
-\label{sec:orgfe39143}
+\label{sec:org08be2ea}
 \begin{verbatim}
 					; Highlights the current cursor line
 (global-hl-line-mode t)
 
-; this will not require the yes to the reload
+; this will not require the yes to the reload.
 (setq revert-without-query '(".pdf"))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -266,7 +266,7 @@
 \end{verbatim}
 
 \section{Projectile}
-\label{sec:orgbeef2cc}
+\label{sec:org37e570d}
 \begin{verbatim}
 (use-package projectile
   :diminish projectile-mode
@@ -286,7 +286,7 @@
 \end{verbatim}
 
 \section{Magit}
-\label{sec:org24f6f7c}
+\label{sec:org7ff91b8}
 \begin{verbatim}
 (use-package magit
   :custom
@@ -297,7 +297,7 @@
 
 \end{verbatim}
 \section{org mode}
-\label{sec:orgbf5c4fb}
+\label{sec:org0eaa5d5}
 \begin{verbatim}
 (require 'org)
 ;; set up org mobile mode for ipad
@@ -336,7 +336,7 @@
 
 \end{verbatim}
 \section{Switch Window}
-\label{sec:org30956b2}
+\label{sec:org4f90d53}
 \begin{verbatim}
     ;; easy window switchingo
 (use-package switch-window
@@ -356,7 +356,7 @@
 \end{verbatim}
 
 \section{Code Blocks}
-\label{sec:org9f7fe34}
+\label{sec:orgef412a9}
 \begin{verbatim}
 
 ;; This is needed as of Org 9.2
@@ -378,7 +378,7 @@
 \end{verbatim}
 
 \section{Pdf tools}
-\label{sec:org2a0b5a8}
+\label{sec:org854e1cc}
 \begin{verbatim}
 
 ;;; Install epdfinfo via 'brew install pdf-tools --HEAD' and then install the
@@ -405,7 +405,7 @@
 \end{verbatim}
 
 \section{Elfeed}
-\label{sec:org1f7b31c}
+\label{sec:orgaf0017b}
 \begin{verbatim}
 
 (use-package elfeed
@@ -422,7 +422,7 @@
 \end{verbatim}
 
 \section{Beamer}
-\label{sec:org137955f}
+\label{sec:org96a99bd}
 \begin{verbatim}
 (require 'ox-latex)
 (add-to-list 'org-latex-classes
