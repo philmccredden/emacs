@@ -3,8 +3,8 @@
 ;; ----- ido-last-directory-list -----
 (
  ("/Users/phil/Dropbox/" . "@Work/")
- ("/Users/phil/" . ".emacs.d/")
- ("/Users/phil/Dropbox/@Work/Clients/" . "CofC SA&NT/")
+ ("/Users/phil/" . "Dropbox/")
+ ("/Users/phil/Dropbox/@Work/Clients/" . "IMA/")
  ("/Users/phil/Dropbox/@Work/" . "Clients/")
  ("/Users/phil/Dropbox/@Work/Clients/CofC SA&NT/" . "Careworks/")
 )
@@ -23,17 +23,19 @@
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/phil/Dropbox/@Work/Clients/IMA/" (24701 8227 913416 218000) "Comm3.md" "company-meeting2.md" "standdown-email.md" "Team Handout/" "comm6.md" "company-meeting2.docx" "CV_comm2.md" "Stand-downs.md" "IMA Staff Retention Current 1-5-20.xlsx" "Exit Interview - Kerry Harkness/" "exit-interview-questions.docx" "CV_comm2.pdf" "brainstorming.md" "luke.md" "comm4.docx" "exit-interview-questions.md" "company-meeting-16June2020.md" "Lauren.md" "company_meeting.md" "CV_comm2.docx" "CompanyMay2020.md" "comm5.md" "IMA.code-workspace" ".DS_Store" "exit-interview-questions.html" "communication4.docx" "comm4.md" "redundancy comm to staff - June 12 2020" "../" "./")
+
+ ("/Users/phil/Dropbox/" (24722 6366 890434 237000) "css_themes/" "Apps/" "Sync/" ".dropbox.cache/" "adapte-logo.png" "Notability/" "zNotes/" ".Papers3 (1).syncsettings" ".ws.agile.1Password (Phils-iMac's conflicted copy 2012-12-22).settings" "notes/" ".dropbox" "Public/" "Adapte Videos/" "common/" "#.DS_Store#" "@Work/" "emacs/" "@Action/" "CofC SA - Analysis.mindnode/" ".Papers3.syncsettings" "Python Projects/" "org/" "notion icons/" "Lance's story V3.docx" "Vault.dbx-vault" "Financial update for Phil June 2020.xlsx" "Icon" ".DS_Store" "obsidian.text" "New Church/" ".ws.agile.1Password (phil's office imac's conflicted copy 2012-12-23).settings" "personal/" "Rmarkdown/" ".ws.agile.1Password.settings" "../" "./")
+
+ ("/Users/phil/" (24722 20097 288271 295000) "test.org~" ".zsh_sessions/" ".viminfo" ".bash_history" ".mume/" "test.tex" ".gvimrc" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".oh-my-zsh/" ".Xauthority" ".zcompdump-MacBook Pro-5.8" ".kite/" ".bash_profile" "zsh/" ".vscode/" ".mono/" ".newsrc-dribble" ".pyenv/" "Documents/" "scripts-old/" ".npm/" "#.notes#" ".zcompdump" ".yabairc" ".Trash/" "Dropbox/" "Applications/" ".vimrc" "Movies/" "test.org" "scripts/" ".RData" "test.rmd" "News/" "neovim-mac/" ".dropbox/" ".fzf.bash" "Public/" ".iterm2/" ".fzf.zsh" "test.html" "test.pdf" ".deft/" ".elfeed/" ".emacs.d/" ".dotfiles/" "Zotero/" ".doom.d/" ".notion-enhancer/" "Library/" "Desktop/" ".iterm2_shell_integration.zsh" ".zsh_history" "DawnOfMan/" "~:.emacs.d:Emacs.org" ".zprofile" ".atom/" ".pylint.d/" "Pictures/" ".local/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".bashrc" "test/" ".CFUserTextEncoding" ".tmux.conf" ".r/" ".DS_Store" ".vim/" "Databases/" "Music/" ".config/" "vim/" ".Rhistory" "../" "./")
+
  ("/Users/philmccredden/.emacs.d/" (24721 62437 669102 315000) ".git/" "bookmarks~" "elpa/" "recentf" "config.tex~" "bookmarks" "init.el" "auto-save-list/" "config.el" "config.pdf" "transient/" "projectile-bookmarks.eld" "ido.last~" "config.org" "eshell/" "smex-items" "config.tex" "ido.last" "forge-database.sqlite" "../" "./")
 
  ("/Users/phil/.emacs.d/" (24719 56075 131562 273000) ".git/" "bookmarks~" "elpa/" "recentf" "config.tex~" "bookmarks" "init.el" "url/" "auto-save-list/" "config.el" "config.pdf" "transient/" "projectile-bookmarks.eld" "ido.last~" "config.org" "eshell/" "smex-items" "config.tex" "ido.last" "forge-database.sqlite" "../" "./")
 
- ("/Users/phil/" (24719 56085 984955 142000) "test.org~" ".zsh_sessions/" ".viminfo" ".bash_history" ".mume/" "test.tex" ".gvimrc" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".oh-my-zsh/" ".Xauthority" ".zcompdump-MacBook Pro-5.8" ".kite/" ".bash_profile" "zsh/" ".vscode/" ".mono/" ".newsrc-dribble" ".pyenv/" "Documents/" "scripts-old/" ".npm/" "#.notes#" ".zcompdump" ".yabairc" ".Trash/" "Dropbox/" "Applications/" ".vimrc" "Movies/" "test.org" "scripts/" ".RData" "test.rmd" "News/" "neovim-mac/" ".dropbox/" ".fzf.bash" "Public/" ".iterm2/" ".fzf.zsh" "test.html" "test.pdf" ".elfeed/" ".emacs.d/" ".dotfiles/" "Zotero/" ".doom.d/" ".notion-enhancer/" "Library/" "Desktop/" ".iterm2_shell_integration.zsh" ".zsh_history" "DawnOfMan/" "~:.emacs.d:Emacs.org" ".zprofile" ".atom/" ".pylint.d/" "Pictures/" ".local/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".bashrc" "test/" ".CFUserTextEncoding" ".tmux.conf" ".r/" ".DS_Store" ".vim/" "Databases/" "Music/" ".config/" "vim/" ".Rhistory" "../" "./")
-
  ("/Users/phil/Dropbox/@Work/Clients/CofC SA&NT/Careworks/" (24718 31395 432492 407000) "careworks-process-proposal.org" "careworks-process-proposal.tex~" "proposal.tex" "careworks-process-proposal.pdf" "careworks-process-proposal.org~" "proposal.org" "careworks-process-proposal.tex" "proposal.pdf" "proposal.org~" ".#careworks-process-proposal.org" "ecclesia-logo.jpg" "proposal.tex~" "../" "./")
 
  ("/Users/phil/Dropbox/org/" (24718 13243 128502 11000) "test.org~" "test.tex" "work.org~" "#gladstone_uca.org#" "personal.org" "test.tex~" "test.org" "tips.org" "test.pdf" "org-roam.db" "cofcsa.org" "setup.org" "gladstone_uca.tex" "inbox.org" "gladstone_uca.odt" "#test.org#" "ecclesia-logo.jpg" "work.org" ".#work.org" "gladstone_uca.org" "cofcsa.org~" "gladstone_uca.pdf" "../" "./")
-
- ("/Users/phil/Dropbox/" (24701 8320 42392 743000) "css_themes/" "Apps/" "Sync/" ".dropbox.cache/" "adapte-logo.png" "Notability/" "zNotes/" ".Papers3 (1).syncsettings" ".ws.agile.1Password (Phils-iMac's conflicted copy 2012-12-22).settings" "notes/" ".dropbox" "Public/" "Adapte Videos/" "common/" "#.DS_Store#" "@Work/" "@Action/" "CofC SA - Analysis.mindnode/" ".Papers3.syncsettings" "Python Projects/" "org/" "notion icons/" "Lance's story V3.docx" "Vault.dbx-vault" "Financial update for Phil June 2020.xlsx" "Icon" ".DS_Store" "obsidian.text" "New Church/" ".ws.agile.1Password (phil's office imac's conflicted copy 2012-12-23).settings" "personal/" "Rmarkdown/" ".ws.agile.1Password.settings" "../" "./")
 
  ("/Users/phil/Dropbox/@Work/Clients/" (24637 39039 43765 742000) "Port Phillip West Presbytery/" "St Paul's/" "Mooroolbark Salvo Retreat Feb 2020/" "CofC SA&NT/" "Southside MEG/" "IMA/" "Mooroolbark Corps - MEG process/" "IMA (Selective Sync Conflict)/" ".DS_Store" "Port Phillip East Presbytery/" "Macedon Ranges Partnership/" "../" "./")
 

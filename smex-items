@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- flyspell-buffer
- ispell
- flyspell-mode
- eval-buffer
+ helm-org-rifle-org-directory
+ deft-find-file
+ deft
+ org-search-view
+ org-occur
  org-agenda
- calc-date
- package-install
+ elfeed-update
 )
 
 ;; ----- smex-data -----
@@ -24,13 +24,13 @@
  (org-insert-link . 1)
  (org-publish . 1)
  (project-search . 1)
- (projectile-find-dir . 1)
- (projectile-mode-menu . 1)
+ (projectile-find-dir . 4)
+ (projectile-mode-menu . 3)
  (projectile-configure-project . 1)
  (projectile-mode . 1)
  (load-theme . 2)
  (menu-bar--display-line-numbers-mode-relative . 2)
- (package-install . 6)
+ (package-install . 8)
  (pdf-tools-install . 1)
  (pdf-occur-dired-do-search . 1)
  (org-version . 2)
@@ -41,9 +41,29 @@
  (elfeed-update . 13)
  (elfeed-db-unload . 1)
  (recover-this-file . 1)
- (eval-buffer . 2)
+ (eval-buffer . 11)
  (calc-date . 1)
  (flyspell-mode . 4)
  (ispell . 1)
  (flyspell-buffer . 1)
+ (org-sparse-tree . 2)
+ (org-match-sparse-tree . 1)
+ (org-tags-sparse-tree . 2)
+ (deft . 2)
+ (deft-setup . 2)
+ (deft-new-file . 2)
+ (projectile-commander . 1)
+ (projectile-dired-other-frame . 1)
+ (projectile-add-known-project . 1)
+ (package-list-packages . 1)
+ (helm-org-rifle . 3)
+ (helm-org-rifle-org-directory . 5)
+ (helm-gid . 1)
+ (helm-M-x . 1)
+ (org-tags-view . 1)
+ (org-occur . 2)
+ (org-search-view . 6)
+ (deft-refresh . 2)
+ (deft-find-file . 2)
+ (deft-filter-initialize . 1)
 )

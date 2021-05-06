@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("config.org"
+(("org-refile-last-stored"
+ (filename . "~/.emacs.d/config.org")
+ (front-context-string . "** Helm\n   #+beg")
+ (rear-context-string . "\n  #+end_src\n  \n")
+ (position . 12525))
+("config.org"
  (filename . "~/.emacs.d/config.org")
  (front-context-string . ";; Phil's custom")
  (rear-context-string)

@@ -10,9 +10,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("c83c095dd01cde64b631fb0fe5980587deec3834dc55144a6e78ff91ebc80b19" default))
+ '(helm-minibuffer-history-key "M-p")
  '(org-agenda-files nil)
  '(package-selected-packages
-   '(org-evil org-dropbox elfeed-org elfeed org-pdftools pdf-tools switch-window ace-window smex Smex org-bullets hydra general all-the-icons ivy command-log-mode doom-themes use-package evil))
+   '(helm-org-rifle helm-org helm deft org-evil org-dropbox elfeed-org elfeed org-pdftools pdf-tools switch-window ace-window smex Smex org-bullets hydra general all-the-icons ivy command-log-mode doom-themes use-package evil))
  '(pdf-tools-handle-upgrades nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
