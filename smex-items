@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ magit
  helm-org-rifle-org-directory
  deft-find-file
  deft
  org-search-view
  org-occur
  org-agenda
- elfeed-update
 )
 
 ;; ----- smex-data -----
@@ -34,7 +34,7 @@
  (pdf-tools-install . 1)
  (pdf-occur-dired-do-search . 1)
  (org-version . 2)
- (magit . 2)
+ (magit . 4)
  (buffer-menu . 1)
  (org-mode . 1)
  (org-capture . 1)
