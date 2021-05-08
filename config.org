@@ -209,6 +209,20 @@
 ;    (ido-mode 1)
 
   #+end_src
+* Leader key - general.el
+  #+begin_src emacs-lisp
+    (use-package general
+      :config
+      (general-evil-setup t)
+
+      (general-create-definer pm/leader-key-def
+	:keymaps '(normal insert visual emacs)
+	:prefix "SPC"
+	:global-prefix "C-SPC")
+
+      (general-create-definer pm/ctrl-c-keys
+	:prefix "C-c"))
+  #+end_src
   
 * Projectile
   #+begin_src emacs-lisp
@@ -408,13 +422,18 @@
 
 * Helm
   #+begin_src emacs-lisp
-    (use-package helm)
-    (helm-mode 1)
-    (use-package helm-org)
-    (use-package helm-org-rifle
-      :config
-       (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory))
-     ;(global-set-key (kbd "C-c C-w") #'helm-org-rifle--refile))
+     (use-package helm)
+     (helm-mode)
+     (use-package helm-org)
+     (use-package helm-org-rifle)
+;  :config
+;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory))
+;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle--refile))
+;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory)
+
+    (pm/leader-key-def
+	  "d" 'helm-org-rifle-org-directory)
+
   #+end_src
 
 * Yasnippet
@@ -424,7 +443,11 @@
               "~/.emacs.d/plugins/yasnippet")
     (require 'yasnippet)
     (yas-global-mode 1)
-
   #+end_src
-  
+
+* Easy buffer switching
+  Switch through buffers with arrow keys
+  #+begin_src 
+
+  #+end_src 
   

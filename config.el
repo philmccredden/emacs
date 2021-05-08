@@ -170,6 +170,18 @@
 ;    (setq ido-everywhere t)
 ;    (ido-mode 1)
 
+(use-package general
+  :config
+  (general-evil-setup t)
+
+  (general-create-definer pm/leader-key-def
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
+
+  (general-create-definer pm/ctrl-c-keys
+    :prefix "C-c"))
+
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
@@ -297,12 +309,16 @@
   version-control t)
 
 (use-package helm)
-(helm-mode 1)
-(use-package helm-org)
-(use-package helm-org-rifle
-  :config
-   (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory))
- ;(global-set-key (kbd "C-c C-w") #'helm-org-rifle--refile))
+     (helm-mode)
+     (use-package helm-org)
+     (use-package helm-org-rifle)
+;  :config
+;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory))
+;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle--refile))
+;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory)
+
+    (pm/leader-key-def
+	  "d" '(helm-org-rifle-org-directory))
 
 (add-to-list 'load-path
           "~/.emacs.d/plugins/yasnippet")
