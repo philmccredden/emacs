@@ -1,18 +1,18 @@
 
 ;; ----- smex-history -----
 (
- magit
  helm-org-rifle-org-directory
- deft-find-file
- deft
- org-search-view
- org-occur
- org-agenda
+ counsel-org-link
+ snippet-mode
+ package-install
+ package-refresh-contents
+ eshell
+ list-packages
 )
 
 ;; ----- smex-data -----
 (
- (list-packages . 2)
+ (list-packages . 3)
  (org-mobile-push . 2)
  (windmove-down . 1)
  (ibuffer . 1)
@@ -30,7 +30,7 @@
  (projectile-mode . 1)
  (load-theme . 2)
  (menu-bar--display-line-numbers-mode-relative . 2)
- (package-install . 8)
+ (package-install . 9)
  (pdf-tools-install . 1)
  (pdf-occur-dired-do-search . 1)
  (org-version . 2)
@@ -57,7 +57,7 @@
  (projectile-add-known-project . 1)
  (package-list-packages . 1)
  (helm-org-rifle . 3)
- (helm-org-rifle-org-directory . 5)
+ (helm-org-rifle-org-directory . 6)
  (helm-gid . 1)
  (helm-M-x . 1)
  (org-tags-view . 1)
@@ -66,4 +66,10 @@
  (deft-refresh . 2)
  (deft-find-file . 2)
  (deft-filter-initialize . 1)
+ (term . 1)
+ (xterm-mouse-mode . 2)
+ (eshell . 2)
+ (package-refresh-contents . 1)
+ (snippet-mode . 1)
+ (counsel-org-link . 1)
 )

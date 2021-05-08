@@ -3,10 +3,10 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-refile-last-stored"
- (filename . "~/.emacs.d/config.org")
- (front-context-string . "** Helm\n   #+beg")
- (rear-context-string . "\n  #+end_src\n  \n")
- (position . 12525))
+ (filename . "~/Dropbox/org/work.org")
+ (front-context-string . "** Strategic Pri")
+ (rear-context-string . "2021-05-04 Tue>\n")
+ (position . 747))
 ("config.org"
  (filename . "~/.emacs.d/config.org")
  (front-context-string . ";; Phil's custom")

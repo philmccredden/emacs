@@ -8,3 +8,7 @@ ls
 cd S2-ExecSummary/ 
 ls
 exit
+ls
+cd ~/.emacs.d/plugins
+git clone --recursive https://github.com/joaotavora/yasnippet
+exit

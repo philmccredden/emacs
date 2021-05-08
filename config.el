@@ -236,7 +236,10 @@
 	((sequence "TODO" "ACTIVE" "HOLD" "WAITING" "|" "DONE" "CANCELED"))))
 
 ; google like searching for org files
-(setq org-agenda-search-view-always-boolean t)
+(setq org-agenda-search-view-always-boolean t) 
+
+; Clean up extra export files
+(setq org-latex-logfiles-extensions (quote ("lof" "lot" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb" "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl")))
 
 ;; easy window switchingo
 (use-package switch-window
@@ -300,6 +303,11 @@
   :config
    (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory))
  ;(global-set-key (kbd "C-c C-w") #'helm-org-rifle--refile))
+
+(add-to-list 'load-path
+          "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
 
 ;;; Install epdfinfo via 'brew install pdf-tools --HEAD' and then install the
 ;;; pdf-tools elisp via the use-package below. To upgrade the epdfinfo

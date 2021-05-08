@@ -3,10 +3,10 @@
 
 * Tasks
 ** DONE Configure backups to save the files in a central directory
-** DONE set backups to a set directory in Dropbox
-** TODO get Task Colours working
+** TODO figure out easy buffer switching
 ** TODO Snippets
    
+** TODO get Task Colours working
 ** TODO org-ref
    
 ** TODO Checkout what emacs for writers guy was talking about
@@ -16,22 +16,22 @@
    - See if you can find his config on github
      
 ** TODO Get Beamer working
-** DONE Magit Git interface
-** DONE Which key
-** DONE figure out easy buffer switching
-** DONE Window Switching
 ** TODO Org Mode config
-** DONE Set shortcuts for code blocks
 ** ACTIVE Elfeed - Setup org file for feeds
 ** TODO Web mode
-** DONE Spelling
 ** TODO Sync bookmarks
-** DONE Todo states
 ** TODO Configure backups correctly on windows
 ** TODO Python
 ** TODO Latex
 ** TODO deft?
 ** TODO Set a short cut to open the config.org file on windows
+** DONE Magit Git interface
+** DONE Which key
+** DONE Set shortcuts for code blocks
+** DONE Window Switching
+** DONE Spelling
+** DONE Todo states
+** DONE set backups to a set directory in Dropbox
 * Initialize package sources
   #+begin_src emacs-lisp
     (require 'package)
@@ -416,4 +416,15 @@
        (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory))
      ;(global-set-key (kbd "C-c C-w") #'helm-org-rifle--refile))
   #+end_src
+
+* Yasnippet
+  #+begin_src emacs-lisp
+
+    (add-to-list 'load-path
+              "~/.emacs.d/plugins/yasnippet")
+    (require 'yasnippet)
+    (yas-global-mode 1)
+
+  #+end_src
+  
   

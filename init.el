@@ -13,7 +13,7 @@
  '(helm-minibuffer-history-key "M-p")
  '(org-agenda-files nil)
  '(package-selected-packages
-   '(helm-org-rifle helm-org helm deft org-evil org-dropbox elfeed-org elfeed org-pdftools pdf-tools switch-window ace-window smex Smex org-bullets hydra general all-the-icons ivy command-log-mode doom-themes use-package evil))
+   '(yasnippet-snippets helm-org-rifle helm-org helm deft org-evil org-dropbox elfeed-org elfeed org-pdftools pdf-tools switch-window ace-window smex Smex org-bullets hydra general all-the-icons ivy command-log-mode doom-themes use-package evil))
  '(pdf-tools-handle-upgrades nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
