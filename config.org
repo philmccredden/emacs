@@ -53,175 +53,176 @@
   #+end_src
 * User Interface
   #+begin_src emacs-lisp
-    ; Highlights the current cursor line
-    (global-hl-line-mode t)
+; match parenths
+(show-paren-mode 1)
+	; Highlights the current cursor line
+	(global-hl-line-mode t)
 
-    ; this will not require the yes to the reload.
-    (setq revert-without-query '(".pdf"))
+	; this will not require the yes to the reload.
+	(setq revert-without-query '(".pdf"))
 
-    (global-set-key (kbd "C-x C-b") 'ibuffer)
+	(global-set-key (kbd "C-x C-b") 'ibuffer)
 
-    ; open buffers automatically vertically and not horizontal
-    (setq split-height-threshold nil)
-    (setq split-width-threshold 0)
+	; open buffers automatically vertically and not horizontal
+	(setq split-height-threshold nil)
+	(setq split-width-threshold 0)
 
-    (defvar runemacs/default-font-size 160)
+	(defvar runemacs/default-font-size 160)
 
-    (setq inhibit-startup-message t)
+	(setq inhibit-startup-message t)
 
-    (scroll-bar-mode -1)        ; Disable visible scrollbar
-    (tool-bar-mode -1)          ; Disable the toolbar
-    (tooltip-mode -1)           ; Disable tooltips
-    (set-fringe-mode 10)        ; Give some breathing room
-    (menu-bar-mode -1)            ; Disable the menu bar
+	(scroll-bar-mode -1)        ; Disable visible scrollbar
+	(tool-bar-mode -1)          ; Disable the toolbar
+	(tooltip-mode -1)           ; Disable tooltips
+	(set-fringe-mode 10)        ; Give some breathing room
+	(menu-bar-mode -1)            ; Disable the menu bar
 
-    ;; Set up the visible bell
-    (setq visible-bell t)
+	;; Set up the visible bell
+	(setq visible-bell t)
 
-    (set-face-attribute 'default nil :font "Source Code Pro" :height runemacs/default-font-size)
+	(set-face-attribute 'default nil :font "Source Code Pro" :height runemacs/default-font-size)
 
-    ;; Make ESC quit prompts
-    (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-    ;(display-line-numbers-mode 'relative)
-    (setq display-line-numbers 'relative)
+	;; Make ESC quit prompts
+	(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+	;(display-line-numbers-mode 'relative)
+	(setq display-line-numbers 'relative)
 
-    ;; Disable line numbers for some modes
-    (dolist (mode '(term-mode-hook
-		    shell-mode-hook
-		    treemacs-mode-hook
-		    eshell-mode-hook))
-      (add-hook mode (lambda () (display-line-numbers-mode 0))))
+	;; Disable line numbers for some modes
+	(dolist (mode '(term-mode-hook
+			shell-mode-hook
+			treemacs-mode-hook
+			eshell-mode-hook))
+	  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 
-    (use-package command-log-mode)
+	(use-package command-log-mode)
 
-    (use-package ivy
-      :diminish
-      :bind (("C-s" . swiper)
-	     :map ivy-minibuffer-map
-	     ("TAB" . ivy-alt-done)
-	     ("C-l" . ivy-alt-done)
-	     ("C-j" . ivy-next-line)
-	     ("C-k" . ivy-previous-line)
-	     :map ivy-switch-buffer-map
-	     ("C-k" . ivy-previous-line)
-	     ("C-l" . ivy-done)
-	     ("C-d" . ivy-switch-buffer-kill)
-	     :map ivy-reverse-i-search-map
-	     ("C-k" . ivy-previous-line)
-	     ("C-d" . ivy-reverse-i-search-kill))
-      :config
-      (ivy-mode 1))
+	(use-package ivy
+	  :diminish
+	  :bind (("C-s" . swiper)
+		 :map ivy-minibuffer-map
+		 ("TAB" . ivy-alt-done)
+		 ("C-l" . ivy-alt-done)
+		 ("C-j" . ivy-next-line)
+		 ("C-k" . ivy-previous-line)
+		 :map ivy-switch-buffer-map
+		 ("C-k" . ivy-previous-line)
+		 ("C-l" . ivy-done)
+		 ("C-d" . ivy-switch-buffer-kill)
+		 :map ivy-reverse-i-search-map
+		 ("C-k" . ivy-previous-line)
+		 ("C-d" . ivy-reverse-i-search-kill))
+	  :config
+	  (ivy-mode 1))
 
-    ;; NOTE: The first time you load your configuration on a new machine, you'll
-    ;; need to run the following command interactively so that mode line icons
-    ;; display correctly:
-    ;;
-    ;; M-x all-the-icons-install-fonts
+	;; NOTE: The first time you load your configuration on a new machine, you'll
+	;; need to run the following command interactively so that mode line icons
+	;; display correctly:
+	;;
+	;; M-x all-the-icons-install-fonts
 
-    (use-package all-the-icons)
+	(use-package all-the-icons)
 
-    (use-package doom-modeline
-      :init (doom-modeline-mode 1)
-      :custom ((doom-modeline-height 15)))
+	(use-package doom-modeline
+	  :init (doom-modeline-mode 1)
+	  :custom ((doom-modeline-height 15)))
 
-    (use-package doom-themes
-      :init (load-theme 'doom-palenight t))
+	(use-package doom-themes
+	  :init (load-theme 'doom-palenight t))
 
-    (use-package rainbow-delimiters
-      :hook (prog-mode . rainbow-delimiters-mode))
+	(use-package rainbow-delimiters
+	  :hook (prog-mode . rainbow-delimiters-mode))
 
-    (use-package which-key
-      :init (which-key-mode)
-      :diminish which-key-mode
-      :config
-      (setq which-key-idle-delay 1))
+	(use-package which-key
+	  :init (which-key-mode)
+	  :diminish which-key-mode
+	  :config
+	  (setq which-key-idle-delay 1))
 
-    (use-package ivy-rich
-      :init
-      (ivy-rich-mode 1))
+	(use-package ivy-rich
+	  :init
+	  (ivy-rich-mode 1))
 
-    (use-package counsel
-      :bind (("M-x" . counsel-M-x)
-	     ("C-x b" . counsel-ibuffer)
-	     ("C-x C-f" . counsel-find-file)
-	     :map minibuffer-local-map
-	     ("C-r" . 'counsel-minibuffer-history)))
+	(use-package counsel
+	  :bind (("M-x" . counsel-M-x)
+		 ("C-x b" . counsel-ibuffer)
+		 ("C-x C-f" . counsel-find-file)
+		 :map minibuffer-local-map
+		 ("C-r" . 'counsel-minibuffer-history)))
 
-    (use-package helpful
-      :custom
-      (counsel-describe-function-function #'helpful-callable)
-      (counsel-describe-variable-function #'helpful-variable)
-      :bind
-      ([remap describe-function] . counsel-describe-function)
-      ([remap describe-command] . helpful-command)
-      ([remap describe-variable] . counsel-describe-variable)
-      ([remap describe-key] . helpful-key))
+	(use-package helpful
+	  :custom
+	  (counsel-describe-function-function #'helpful-callable)
+	  (counsel-describe-variable-function #'helpful-variable)
+	  :bind
+	  ([remap describe-function] . counsel-describe-function)
+	  ([remap describe-command] . helpful-command)
+	  ([remap describe-variable] . counsel-describe-variable)
+	  ([remap describe-key] . helpful-key))
 
-    (use-package general
-      :config
-      (general-create-definer rune/leader-keys
-	:keymaps '(normal insert visual emacs)
-	:prefix "SPC"
-	:global-prefix "C-SPC")
+	(use-package evil
+	  :init
+	  (setq evil-want-integration t)
+	  (setq evil-want-keybinding nil)
+	  (setq evil-want-C-u-scroll t)
+	  (setq evil-want-C-i-jump nil)
+	  :config
+	  (evil-mode 1)
+	  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+	  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
 
-      (rune/leader-keys
-	"t"  '(:ignore t :which-key "toggles")
-	"tt" '(counsel-load-theme :which-key "choose theme")))
+	  ;; Use visual line motions even outside of visual-line-mode buffers
+	  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+	  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
 
-    (use-package evil
-      :init
-      (setq evil-want-integration t)
-      (setq evil-want-keybinding nil)
-      (setq evil-want-C-u-scroll t)
-      (setq evil-want-C-i-jump nil)
-      :config
-      (evil-mode 1)
-      (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-      (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+	  (evil-set-initial-state 'messages-buffer-mode 'normal)
+	  (evil-set-initial-state 'dashboard-mode 'normal))
 
-      ;; Use visual line motions even outside of visual-line-mode buffers
-      (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-      (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+	(use-package evil-collection
+	  :after evil
+	  :config
+	  (evil-collection-init))
 
-      (evil-set-initial-state 'messages-buffer-mode 'normal)
-      (evil-set-initial-state 'dashboard-mode 'normal))
+	(use-package hydra)
 
-    (use-package evil-collection
-      :after evil
-      :config
-      (evil-collection-init))
+	(defhydra hydra-text-scale (:timeout 4)
+	  "scale text"
+	  ("j" text-scale-increase "in")
+	  ("k" text-scale-decrease "out")
+	  ("f" nil "finished" :exit t))
 
-    (use-package hydra)
-
-    (defhydra hydra-text-scale (:timeout 4)
-      "scale text"
-      ("j" text-scale-increase "in")
-      ("k" text-scale-decrease "out")
-      ("f" nil "finished" :exit t))
-
-    (rune/leader-keys
-      "ts" '(hydra-text-scale/body :which-key "scale text"))
-
-; incompatible with helm
-;    (setq indo-enable-flex-matching t)
-;    (setq ido-everywhere t)
-;    (ido-mode 1)
+    ; incompatible with helm
+    ;    (setq indo-enable-flex-matching t)
+    ;    (setq ido-everywhere t)
+    ;    (ido-mode 1)
 
   #+end_src
 * Leader key - general.el
   #+begin_src emacs-lisp
+
     (use-package general
-      :config
-      (general-evil-setup t)
+     :after evil
+     :config
+    (general-create-definer pm/leader-keys
+     :keymaps '(normal insert visual emacs)
+     :prefix "SPC"
+     :global-prefix "C-SPC")
 
-      (general-create-definer pm/leader-key-def
-	:keymaps '(normal insert visual emacs)
-	:prefix "SPC"
-	:global-prefix "C-SPC")
+    (pm/leader-keys
+     "t"  '(:ignore t :which-key "toggles")
+     "tt" '(counsel-load-theme :which-key "choose theme")
+     "fde" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/config.org")))))
 
-      (general-create-definer pm/ctrl-c-keys
-	:prefix "C-c"))
+    (general-create-definer pm/ctrl-c-keys
+      :prefix "C-c")
+
+    (pm/leader-keys
+      "t"  '(:ignore t :which-key "toggles")
+      "tt" '(counsel-load-theme :which-key "choose theme"))
+
+    (pm/leader-keys
+      "ts" '(hydra-text-scale/body :which-key "scale text"))
+
   #+end_src
   
 * Projectile
@@ -431,7 +432,7 @@
 ;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle--refile))
 ;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory)
 
-    (pm/leader-key-def
+    (pm/leader-keys
 	  "d" 'helm-org-rifle-org-directory)
 
   #+end_src

@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- elint-current-buffer
+ eval-buffer
+ org-lint
  helm-org-rifle-org-directory
  counsel-org-link
  snippet-mode
  package-install
  package-refresh-contents
- eshell
 )
 
 ;; ----- smex-data -----
@@ -41,7 +41,7 @@
  (elfeed-update . 13)
  (elfeed-db-unload . 1)
  (recover-this-file . 1)
- (eval-buffer . 11)
+ (eval-buffer . 25)
  (calc-date . 1)
  (flyspell-mode . 4)
  (ispell . 1)
@@ -57,7 +57,7 @@
  (projectile-add-known-project . 1)
  (package-list-packages . 1)
  (helm-org-rifle . 3)
- (helm-org-rifle-org-directory . 8)
+ (helm-org-rifle-org-directory . 6)
  (helm-gid . 1)
  (helm-M-x . 1)
  (org-tags-view . 1)
@@ -72,5 +72,5 @@
  (package-refresh-contents . 1)
  (snippet-mode . 1)
  (counsel-org-link . 1)
- (elint-current-buffer . 1)
+ (org-lint . 1)
 )
