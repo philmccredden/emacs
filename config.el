@@ -153,23 +153,18 @@
 	  ("k" text-scale-decrease "out")
 	  ("f" nil "finished" :exit t))
 
-    ; incompatible with helm
-    ;    (setq indo-enable-flex-matching t)
-    ;    (setq ido-everywhere t)
-    ;    (ido-mode 1)
-
 (use-package general
- :after evil
- :config
-(general-create-definer pm/leader-keys
- :keymaps '(normal insert visual emacs)
- :prefix "SPC"
- :global-prefix "C-SPC")
+  :after evil
+  :config
+  (general-create-definer pm/leader-keys
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
 
-(pm/leader-keys
- "t"  '(:ignore t :which-key "toggles")
- "tt" '(counsel-load-theme :which-key "choose theme")
- "fde" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/config.org")))))
+  (pm/leader-keys
+    "t"  '(:ignore t :which-key "toggles")
+    "tt" '(counsel-load-theme :which-key "choose theme")
+    "fde" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/config.org")))))
 
 (general-create-definer pm/ctrl-c-keys
   :prefix "C-c")
@@ -204,14 +199,10 @@
 (use-package forge)
 
 (require 'org)
-	;; set up org mobile mode for ipad
+        '(org-agenda-files nil) ; reset variable
 	(setq org-directory "~/Dropbox/org")
+    (setq org-agenda-files (list org-directory))
 
-	(setq org-agenda-files (list "~/Dropbox/org/work.org"
-				 "~/Dropbox/org/personal.org"))
-
-	(setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
-	(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 
 	(global-visual-line-mode t)
@@ -316,13 +307,25 @@
 ;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle--refile))
 ;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory)
 
-;    (pm/leader-key-def
-;	  "d" 'helm-org-rifle-org-directory)
+    (pm/leader-keys
+	  "d" 'helm-org-rifle-org-directory)
 
 (add-to-list 'load-path
           "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
+
+(require 'deft)
+(setq deft-extensions '("org"))
+(setq deft-directory "~/Dropbox/org")
+(setq deft-default-extension "org")
+(setq deft-text-mode 'org-mode)
+(setq deft-use-filename-as-title nil)
+(setq deft-use-filter-string-for-filename t)
+(setq deft-auto-save-interval 0)
+(setq deft-recursive t)
+(global-set-key (kbd "C-c d") 'deft-find-file)
+(global-set-key (kbd "C-c D") 'deft)
 
 ;;; Install epdfinfo via 'brew install pdf-tools --HEAD' and then install the
 ;;; pdf-tools elisp via the use-package below. To upgrade the epdfinfo

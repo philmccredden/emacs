@@ -1,38 +1,7 @@
 #+Title: Phil's custom Emacs config
 #+Author: Phil McCredden
 
-* Tasks
-** DONE Configure backups to save the files in a central directory
-** TODO figure out easy buffer switching
-** TODO Snippets
-   
-** TODO get Task Colours working
-** TODO org-ref
-   
-** TODO Checkout what emacs for writers guy was talking about
-   - short cut for last open file
-   - page up and down for moving through buffers
-   - listing recently open files (this was done through helm)
-   - See if you can find his config on github
-     
-** TODO Get Beamer working
-** TODO Org Mode config
-** ACTIVE Elfeed - Setup org file for feeds
-** TODO Web mode
-** TODO Sync bookmarks
-** TODO Configure backups correctly on windows
-** TODO Python
-** TODO Latex
-** TODO deft?
-** TODO Set a short cut to open the config.org file on windows
-** DONE Magit Git interface
-** DONE Which key
-** DONE Set shortcuts for code blocks
-** DONE Window Switching
-** DONE Spelling
-** DONE Todo states
-** DONE set backups to a set directory in Dropbox
-* Initialize package sources
+ Initialize package sources
   #+begin_src emacs-lisp
     (require 'package)
 
@@ -53,6 +22,7 @@
   #+end_src
 * User Interface
   #+begin_src emacs-lisp
+
 ; match parenths
 (show-paren-mode 1)
 	; Highlights the current cursor line
@@ -191,27 +161,22 @@
 	  ("k" text-scale-decrease "out")
 	  ("f" nil "finished" :exit t))
 
-    ; incompatible with helm
-    ;    (setq indo-enable-flex-matching t)
-    ;    (setq ido-everywhere t)
-    ;    (ido-mode 1)
-
   #+end_src
 * Leader key - general.el
   #+begin_src emacs-lisp
 
     (use-package general
-     :after evil
-     :config
-    (general-create-definer pm/leader-keys
-     :keymaps '(normal insert visual emacs)
-     :prefix "SPC"
-     :global-prefix "C-SPC")
+      :after evil
+      :config
+      (general-create-definer pm/leader-keys
+	:keymaps '(normal insert visual emacs)
+	:prefix "SPC"
+	:global-prefix "C-SPC")
 
-    (pm/leader-keys
-     "t"  '(:ignore t :which-key "toggles")
-     "tt" '(counsel-load-theme :which-key "choose theme")
-     "fde" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/config.org")))))
+      (pm/leader-keys
+	"t"  '(:ignore t :which-key "toggles")
+	"tt" '(counsel-load-theme :which-key "choose theme")
+	"fde" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/config.org")))))
 
     (general-create-definer pm/ctrl-c-keys
       :prefix "C-c")
@@ -257,14 +222,10 @@
 * org mode
   #+begin_src emacs-lisp
 	    (require 'org)
-	    ;; set up org mobile mode for ipad
+            '(org-agenda-files nil) ; reset variable
 	    (setq org-directory "~/Dropbox/org")
+	(setq org-agenda-files (list org-directory))
 
-	    (setq org-agenda-files (list "~/Dropbox/org/work.org"
-				     "~/Dropbox/org/personal.org"))
-
-	    (setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
-	    (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 
 	    (global-visual-line-mode t)
@@ -446,9 +407,18 @@
     (yas-global-mode 1)
   #+end_src
 
-* Easy buffer switching
-  Switch through buffers with arrow keys
-  #+begin_src 
+* Deft 
+  #+begin_src emacs-lisp
+    (require 'deft)
+    (setq deft-extensions '("org"))
+    (setq deft-directory "~/Dropbox/org")
+    (setq deft-default-extension "org")
+    (setq deft-text-mode 'org-mode)
+    (setq deft-use-filename-as-title nil)
+    (setq deft-use-filter-string-for-filename t)
+    (setq deft-auto-save-interval 0)
+    (setq deft-recursive t)
+    (global-set-key (kbd "C-c d") 'deft-find-file)
+    (global-set-key (kbd "C-c D") 'deft)
+  #+end_src
 
-  #+end_src 
-  
