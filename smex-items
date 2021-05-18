@@ -1,8 +1,8 @@
 
 ;; ----- smex-history -----
 (
- org-capture
  org-agenda
+ org-capture
  eval-buffer
  add-mode-abbrev
  edit-abbrevs
@@ -19,7 +19,7 @@
  (rename-file . 1)
  (rename-buffer . 1)
  (make-directory . 1)
- (org-agenda . 82)
+ (org-agenda . 84)
  (org-schedule . 2)
  (org-insert-link . 1)
  (org-publish . 1)
@@ -37,11 +37,11 @@
  (magit . 4)
  (buffer-menu . 1)
  (org-mode . 1)
- (org-capture . 5)
+ (org-capture . 7)
  (elfeed-update . 13)
  (elfeed-db-unload . 1)
  (recover-this-file . 1)
- (eval-buffer . 38)
+ (eval-buffer . 39)
  (calc-date . 1)
  (flyspell-mode . 4)
  (ispell . 1)

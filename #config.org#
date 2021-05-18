@@ -278,11 +278,11 @@
 * Org Capture
   Org capture templates
   #+begin_src emacs-lisp
-	(setq org-capture-templates
-	      '(("t" "Work Todo" entry (file "~/Dropbox/org/work.org")
-		 "* TODO %?\n%U" :empty-lines 1)
-		("e" "Emacs Config Todo" entry (file+headline "~/Dropbox/org/emacs.org" "Tasks")
-		 "* TODO %?\n  %i\n  %a")))
+    (setq org-capture-templates
+	  '(("t" "Work Todo" entry (file "~/Dropbox/org/work.org")
+	     "* TODO %?\n%U" :empty-lines 1)
+	    ("e" "Emacs Config Todo" entry (file+headline "~/Dropbox/org/emacs.org" "Tasks")
+	     "* TODO %?\n  %i\n  %a")))
   #+end_src
 * Switch Window
   #+begin_src emacs-lisp

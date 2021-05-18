@@ -249,17 +249,8 @@
 (setq org-capture-templates
       '(("t" "Work Todo" entry (file "~/Dropbox/org/work.org")
 	 "* TODO %?\n%U" :empty-lines 1)
-	("T" "Todo with Clipboard" entry (file "~/Work/Org/Refile.org")
-	 "* TODO %?\n%U\n   %c" :empty-lines 1)
-	("n" "Note" entry (file "~/Work/Org/Refile.org")
-	 "* NOTE %?\n%U" :empty-lines 1)
-	("N" "Note with Clipboard" entry (file "~/Work/Org/Refile.org")
-	 "* NOTE %?\n%U\n   %c" :empty-lines 1)
-	("e" "Event" entry (file+headline "~/Work/Org/Events.org" "Transient")
-	 "* EVENT %?\n%U" :empty-lines 1)
-	("E" "Event With Clipboard" entry (file+headline "~/Work/Org/Events.org" "Transient")
-	 "* EVENT %?\n%U\n   %c" :empty-lines 1))
-      )
+	("e" "Emacs Config Todo" entry (file+headline "~/Dropbox/org/emacs.org" "Tasks")
+	 "* TODO %?\n  %i\n  %a")))
 
 ;; easy window switchingo
 (use-package switch-window
