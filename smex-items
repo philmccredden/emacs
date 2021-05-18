@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ org-capture
  org-agenda
  eval-buffer
- org-sparse-tree
- org-search-view
- helm-org-agenda-files-headings
- org-tags-view
- org-match-sparse-tree
+ add-mode-abbrev
+ edit-abbrevs
+ define-mode-abbrev
+ list-abbrevs
 )
 
 ;; ----- smex-data -----
@@ -19,7 +19,7 @@
  (rename-file . 1)
  (rename-buffer . 1)
  (make-directory . 1)
- (org-agenda . 70)
+ (org-agenda . 82)
  (org-schedule . 2)
  (org-insert-link . 1)
  (org-publish . 1)
@@ -37,11 +37,11 @@
  (magit . 4)
  (buffer-menu . 1)
  (org-mode . 1)
- (org-capture . 1)
+ (org-capture . 5)
  (elfeed-update . 13)
  (elfeed-db-unload . 1)
  (recover-this-file . 1)
- (eval-buffer . 33)
+ (eval-buffer . 38)
  (calc-date . 1)
  (flyspell-mode . 4)
  (ispell . 1)
@@ -79,4 +79,11 @@
  (yas-new-snippet . 1)
  (org-agenda-menu . 1)
  (helm-org-agenda-files-headings . 2)
+ (erc . 1)
+ (define-mode-abbrev . 7)
+ (define-abbrevs . 1)
+ (list-abbrevs . 2)
+ (define-global-abbrev . 4)
+ (edit-abbrevs . 2)
+ (add-mode-abbrev . 3)
 )

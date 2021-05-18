@@ -1,7 +1,7 @@
 #+Title: Phil's custom Emacs config
 #+Author: Phil McCredden
 
- Initialize package sources
+* Initialize package sources
   #+begin_src emacs-lisp
     (require 'package)
 
@@ -20,146 +20,144 @@
     (require 'use-package)
     (setq use-package-always-ensure t)
   #+end_src
+* Line Numbers
+  Display relative line numbers in all modes except for shell
+  #+begin_src emacs-lisp
+    (global-display-line-numbers-mode 1)
+;    (setq display-line-numbers-type 'relative)
+
+    ;; Disable line numbers for some modes
+    (dolist (mode '(term-mode-hook
+		    shell-mode-hook
+		    treemacs-mode-hook
+		    eshell-mode-hook))
+      (add-hook mode (lambda () (display-line-numbers-mode 0))))
+  #+end_src
 * User Interface
   #+begin_src emacs-lisp
 
-; match parenths
-(show-paren-mode 1)
-	; Highlights the current cursor line
-	(global-hl-line-mode t)
+    (show-paren-mode 1)                   ; match paranthesis
+    (global-hl-line-mode t)               ; highlights the current line
+    (setq revert-without-query '(".pdf")) ; don't require yes to the reload of pdf
 
-	; this will not require the yes to the reload.
-	(setq revert-without-query '(".pdf"))
+    (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-	(global-set-key (kbd "C-x C-b") 'ibuffer)
+    (setq split-height-threshold nil)     ; open buffers vertically
+    (setq split-width-threshold 0)
 
-	; open buffers automatically vertically and not horizontal
-	(setq split-height-threshold nil)
-	(setq split-width-threshold 0)
+    (defvar runemacs/default-font-size 160)
 
-	(defvar runemacs/default-font-size 160)
+    (setq inhibit-startup-message t)
 
-	(setq inhibit-startup-message t)
+    (scroll-bar-mode -1)        ; Disable visible scrollbar
+    (tool-bar-mode -1)          ; Disable the toolbar
+    (tooltip-mode -1)           ; Disable tooltips
+    (set-fringe-mode 10)        ; Give some breathing room
+    (menu-bar-mode -1)          ; Disable the menu bar
 
-	(scroll-bar-mode -1)        ; Disable visible scrollbar
-	(tool-bar-mode -1)          ; Disable the toolbar
-	(tooltip-mode -1)           ; Disable tooltips
-	(set-fringe-mode 10)        ; Give some breathing room
-	(menu-bar-mode -1)            ; Disable the menu bar
+    ;; Set up the visible bell
+    (setq visible-bell t)
 
-	;; Set up the visible bell
-	(setq visible-bell t)
+    (set-face-attribute 'default nil :font "Source Code Pro" :height runemacs/default-font-size)
 
-	(set-face-attribute 'default nil :font "Source Code Pro" :height runemacs/default-font-size)
+    ;; Make ESC quit prompts
+    (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-	;; Make ESC quit prompts
-	(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-	;(display-line-numbers-mode 'relative)
-	(setq display-line-numbers 'relative)
+    (use-package command-log-mode)
 
-	;; Disable line numbers for some modes
-	(dolist (mode '(term-mode-hook
-			shell-mode-hook
-			treemacs-mode-hook
-			eshell-mode-hook))
-	  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+    (use-package ivy
+      :diminish
+      :bind (("C-s" . swiper)
+	     :map ivy-minibuffer-map
+	     ("TAB" . ivy-alt-done)
+	     ("C-l" . ivy-alt-done)
+	     ("C-j" . ivy-next-line)
+	     ("C-k" . ivy-previous-line)
+	     :map ivy-switch-buffer-map
+	     ("C-k" . ivy-previous-line)
+	     ("C-l" . ivy-done)
+	     ("C-d" . ivy-switch-buffer-kill)
+	     :map ivy-reverse-i-search-map
+	     ("C-k" . ivy-previous-line)
+	     ("C-d" . ivy-reverse-i-search-kill))
+      :config
+      (ivy-mode 1))
 
+    ;; NOTE: The first time you load your configuration on a new machine, you'll
+    ;; need to run the following command interactively so that mode line icons
+    ;; display correctly:
+    ;;
+    ;; M-x all-the-icons-install-fonts
 
-	(use-package command-log-mode)
+    (use-package all-the-icons)
 
-	(use-package ivy
-	  :diminish
-	  :bind (("C-s" . swiper)
-		 :map ivy-minibuffer-map
-		 ("TAB" . ivy-alt-done)
-		 ("C-l" . ivy-alt-done)
-		 ("C-j" . ivy-next-line)
-		 ("C-k" . ivy-previous-line)
-		 :map ivy-switch-buffer-map
-		 ("C-k" . ivy-previous-line)
-		 ("C-l" . ivy-done)
-		 ("C-d" . ivy-switch-buffer-kill)
-		 :map ivy-reverse-i-search-map
-		 ("C-k" . ivy-previous-line)
-		 ("C-d" . ivy-reverse-i-search-kill))
-	  :config
-	  (ivy-mode 1))
+    (use-package doom-modeline
+      :init (doom-modeline-mode 1)
+      :custom ((doom-modeline-height 15)))
 
-	;; NOTE: The first time you load your configuration on a new machine, you'll
-	;; need to run the following command interactively so that mode line icons
-	;; display correctly:
-	;;
-	;; M-x all-the-icons-install-fonts
+    (use-package doom-themes
+      :init (load-theme 'doom-palenight t))
 
-	(use-package all-the-icons)
+    (use-package rainbow-delimiters
+      :hook (prog-mode . rainbow-delimiters-mode))
 
-	(use-package doom-modeline
-	  :init (doom-modeline-mode 1)
-	  :custom ((doom-modeline-height 15)))
+    (use-package which-key
+      :init (which-key-mode)
+      :diminish which-key-mode
+      :config
+      (setq which-key-idle-delay 1))
 
-	(use-package doom-themes
-	  :init (load-theme 'doom-palenight t))
+    (use-package ivy-rich
+      :init
+      (ivy-rich-mode 1))
 
-	(use-package rainbow-delimiters
-	  :hook (prog-mode . rainbow-delimiters-mode))
+    (use-package counsel
+      :bind (("M-x" . counsel-M-x)
+	     ("C-x b" . counsel-ibuffer)
+	     ("C-x C-f" . counsel-find-file)
+	     :map minibuffer-local-map
+	     ("C-r" . 'counsel-minibuffer-history)))
 
-	(use-package which-key
-	  :init (which-key-mode)
-	  :diminish which-key-mode
-	  :config
-	  (setq which-key-idle-delay 1))
+    (use-package helpful
+      :custom
+      (counsel-describe-function-function #'helpful-callable)
+      (counsel-describe-variable-function #'helpful-variable)
+      :bind
+      ([remap describe-function] . counsel-describe-function)
+      ([remap describe-command] . helpful-command)
+      ([remap describe-variable] . counsel-describe-variable)
+      ([remap describe-key] . helpful-key))
 
-	(use-package ivy-rich
-	  :init
-	  (ivy-rich-mode 1))
+    (use-package evil
+      :init
+      (setq evil-want-integration t)
+      (setq evil-want-keybinding nil)
+      (setq evil-want-C-u-scroll t)
+      (setq evil-want-C-i-jump nil)
+      :config
+      (evil-mode 1)
+      (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+      (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
 
-	(use-package counsel
-	  :bind (("M-x" . counsel-M-x)
-		 ("C-x b" . counsel-ibuffer)
-		 ("C-x C-f" . counsel-find-file)
-		 :map minibuffer-local-map
-		 ("C-r" . 'counsel-minibuffer-history)))
+      ;; Use visual line motions even outside of visual-line-mode buffers
+      (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+      (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
 
-	(use-package helpful
-	  :custom
-	  (counsel-describe-function-function #'helpful-callable)
-	  (counsel-describe-variable-function #'helpful-variable)
-	  :bind
-	  ([remap describe-function] . counsel-describe-function)
-	  ([remap describe-command] . helpful-command)
-	  ([remap describe-variable] . counsel-describe-variable)
-	  ([remap describe-key] . helpful-key))
+      (evil-set-initial-state 'messages-buffer-mode 'normal)
+      (evil-set-initial-state 'dashboard-mode 'normal))
 
-	(use-package evil
-	  :init
-	  (setq evil-want-integration t)
-	  (setq evil-want-keybinding nil)
-	  (setq evil-want-C-u-scroll t)
-	  (setq evil-want-C-i-jump nil)
-	  :config
-	  (evil-mode 1)
-	  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-	  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+    (use-package evil-collection
+      :after evil
+      :config
+      (evil-collection-init))
 
-	  ;; Use visual line motions even outside of visual-line-mode buffers
-	  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-	  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+    (use-package hydra)
 
-	  (evil-set-initial-state 'messages-buffer-mode 'normal)
-	  (evil-set-initial-state 'dashboard-mode 'normal))
-
-	(use-package evil-collection
-	  :after evil
-	  :config
-	  (evil-collection-init))
-
-	(use-package hydra)
-
-	(defhydra hydra-text-scale (:timeout 4)
-	  "scale text"
-	  ("j" text-scale-increase "in")
-	  ("k" text-scale-decrease "out")
-	  ("f" nil "finished" :exit t))
+    (defhydra hydra-text-scale (:timeout 4)
+      "scale text"
+      ("j" text-scale-increase "in")
+      ("k" text-scale-decrease "out")
+      ("f" nil "finished" :exit t))
 
   #+end_src
 * Leader key - general.el
@@ -221,68 +219,100 @@
   #+end_src
 * org mode
   #+begin_src emacs-lisp
-	    (require 'org)
-            '(org-agenda-files nil) ; reset variable
-	    (setq org-directory "~/Dropbox/org")
-	(setq org-agenda-files (list org-directory))
+    (require 'org)
+    '(org-agenda-files nil) ; reset variable
+    (setq org-directory "~/Dropbox/org")
+    (setq org-agenda-files (list org-directory))
 
+    (global-visual-line-mode t)
+    (defun efs/org-mode-setup ()
+      (org-indent-mode)
+      (variable-pitch-mode 1)
+      (visual-line-mode 1))
 
+    (use-package org-bullets
+      :after org
+      :hook (org-mode . org-bullets-mode)
+      :custom
+      (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-	    (global-visual-line-mode t)
-	    (defun efs/org-mode-setup ()
-	      (org-indent-mode)
-	      (variable-pitch-mode 1)
-	      (visual-line-mode 1))
+    (defun efs/org-mode-visual-fill ()
+      (setq visual-fill-column-width 100
+	    visual-fill-column-center-text t)
+      (visual-fill-column-mode 1))
 
-	    (use-package org-bullets
-	      :after org
-	      :hook (org-mode . org-bullets-mode)
-	      :custom
-	      (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+    (use-package visual-fill-column
+      :hook (org-mode . efs/org-mode-visual-fill))
+    (defun efs/org-mode-setup ()
+      (org-indent-mode)
+      (variable-pitch-mode 1)
+      (visual-line-mode 1))
 
-	    (defun efs/org-mode-visual-fill ()
-	      (setq visual-fill-column-width 100
-		    visual-fill-column-center-text t)
-	      (visual-fill-column-mode 1))
+					    ; Startup with content in folder state
+    (setq org-startup-folded t)
 
-	    (use-package visual-fill-column
-	      :hook (org-mode . efs/org-mode-visual-fill))
-	    (defun efs/org-mode-setup ()
-	      (org-indent-mode)
-	      (variable-pitch-mode 1)
-	      (visual-line-mode 1))
-
-	   ; Startup with content in folder state
-	   (setq org-startup-folded t)
-
-    ; Todo Keywords
+					    ; Todo Keywords
     (setq org-todo-keywords
 	  (quote
-	    ((sequence "TODO" "ACTIVE" "HOLD" "WAITING" "|" "DONE" "CANCELED"))))
+	   ((sequence "TODO" "ACTIVE" "HOLD" "WAITING" "|" "DONE" "CANCELED"))))
 
-    ; google like searching for org files
+    (setq org-todo-keyword-faces
+	  '(("TODO" . (:foreground "green" :weight bold))
+	    ("ACTIVE" . (:foreground "blue" :weight bold))
+	    ("HOLD" . (:foreground "orange" :weight bold))
+	    ("WAITING" . (:foreground "red" :weight bold))
+	    ("DONE" . (:foreground "cyan" :weight bold))
+	    ("CANCELED" . (:foreground "gray" :weight bold))))
+
+					    ; google like searching for org files
     (setq org-agenda-search-view-always-boolean t) 
 
-    ; Clean up extra export files
+					    ; Clean up extra export files
     (setq org-latex-logfiles-extensions (quote ("lof" "lot" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb" "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl")))
+  #+end_src
+* Org Projects
+  Projects are headings with the :project: tag, so we generally don't want that tag inherited, except when we display unscheduled tasks that don't belong to any projects.
+  #+begin_src emacs-lisp
+   (setq org-tags-exclude-from-inheritance '("project"))
  #+end_src
+* Org Capture
+  Org capture templates
+  #+begin_src emacs-lisp
+    (setq org-capture-templates
+	  '(("t" "Work Todo" entry (file "~/Dropbox/org/work.org")
+	     "* TODO %?\n%U" :empty-lines 1)
+	    ("t" "Emacs Config Todo" entry (file "~/Dropbox/org/emacs.org")
+	     "* TODO %?\n%U" :empty-lines 1)
+	    ("T" "Todo with Clipboard" entry (file "~/Work/Org/Refile.org")
+	     "* TODO %?\n%U\n   %c" :empty-lines 1)
+	    ("n" "Note" entry (file "~/Work/Org/Refile.org")
+	     "* NOTE %?\n%U" :empty-lines 1)
+	    ("N" "Note with Clipboard" entry (file "~/Work/Org/Refile.org")
+	     "* NOTE %?\n%U\n   %c" :empty-lines 1)
+	    ("e" "Event" entry (file+headline "~/Work/Org/Events.org" "Transient")
+	     "* EVENT %?\n%U" :empty-lines 1)
+	    ("E" "Event With Clipboard" entry (file+headline "~/Work/Org/Events.org" "Transient")
+	     "* EVENT %?\n%U\n   %c" :empty-lines 1))
+	  )
+
+  #+end_src
 * Switch Window
   #+begin_src emacs-lisp
     ;; easy window switchingo
-(use-package switch-window
-  :ensure t
-  :bind
-  ;; default C-x o is other-window
-  ;; default C-x C-o is delete-blank-lines
-  (("C-x o" . switch-window)
-   ("C-x C-o" . switch-window))
-  :config
-  (setq switch-window-multiple-frames t)
-  (setq switch-window-shortcut-style 'qwerty)
-  ;; when Emacs is run as client, the first shortcut does not appear
-  ;; "x" acts as a dummy; remove first entry if not running server
-  (setq switch-window-qwerty-shortcuts '("x" "a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "r" "u" "i" "o" "q" "t" "y" "p"))
-  (setq switch-window-increase 3))
+    (use-package switch-window
+      :ensure t
+      :bind
+      ;; default C-x o is other-window
+      ;; default C-x C-o is delete-blank-lines
+      (("C-x o" . switch-window)
+       ("C-x C-o" . switch-window))
+      :config
+      (setq switch-window-multiple-frames t)
+      (setq switch-window-shortcut-style 'qwerty)
+      ;; when Emacs is run as client, the first shortcut does not appear
+      ;; "x" acts as a dummy; remove first entry if not running server
+      (setq switch-window-qwerty-shortcuts '("x" "a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "r" "u" "i" "o" "q" "t" "y" "p"))
+      (setq switch-window-increase 3))
   #+end_src
   
 * Code Blocks
@@ -301,9 +331,9 @@
     (setq org-src-fontify-natively t)
 
     (org-babel-do-load-languages
-	     'org-babel-load-languages
-	     '((emacs-lisp . t)
-	       (python . t)))
+     'org-babel-load-languages
+     '((emacs-lisp . t)
+       (python . t)))
   #+end_src
 
 * Pdf tools
@@ -316,18 +346,18 @@
     ;;; up, just do 'brew uninstall pdf-tools', wipe out the elpa
     ;;; pdf-tools package and reinstall both as at the start.
 
-    ;(use-package pdf-tools
-    ; 	:ensure t
-    ;	:config
-    ;	(custom-set-variables
-    ;	  '(pdf-tools-handle-upgrades nil)) ; Use brew upgrade pdf-tools instead.
-    ;   (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo"))
-    ;(pdf-tools-install)
+					    ;(use-package pdf-tools
+					    ; 	:ensure t
+					    ;	:config
+					    ;	(custom-set-variables
+					    ;	  '(pdf-tools-handle-upgrades nil)) ; Use brew upgrade pdf-tools instead.
+					    ;   (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo"))
+					    ;(pdf-tools-install)
 
-    ;(use-package org-pdftools
-    ;  :hook (org-mode . org-pdftools-setup-link))
+					    ;(use-package org-pdftools
+					    ;  :hook (org-mode . org-pdftools-setup-link))
 
-    ; open pdf in pdftools 
+					    ; open pdf in pdftools 
     (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
 
   #+end_src
@@ -335,16 +365,16 @@
 * Elfeed
   #+begin_src elisp
 
-(use-package elfeed
-  :commands elfeed
-  :config
-  (setq elfeed-feeds
-    '("https://nullprogram.com/feed/"
-      "https://ambrevar.xyz/atom.xml"
-      "https://valdyas.org/fading/feed/"
-      "https://www.reddit.com/r/emacs/.rss")))
+    (use-package elfeed
+      :commands elfeed
+      :config
+      (setq elfeed-feeds
+	    '("https://nullprogram.com/feed/"
+	      "https://ambrevar.xyz/atom.xml"
+	      "https://valdyas.org/fading/feed/"
+	      "https://www.reddit.com/r/emacs/.rss")))
 
-  (global-set-key (kbd "C-x w") 'elfeed)
+    (global-set-key (kbd "C-x w") 'elfeed)
 
   #+end_src
 
@@ -353,11 +383,11 @@
   #+begin_src emacs-lisp
     (require 'ox-latex)
     (add-to-list 'org-latex-classes
-             '("beamer"
-               "\\documentclass\[presentation\]\{beamer\}"
-               ("\\section\{%s\}" . "\\section*\{%s\}")
-               ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
-               ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
+		 '("beamer"
+		   "\\documentclass\[presentation\]\{beamer\}"
+		   ("\\section\{%s\}" . "\\section*\{%s\}")
+		   ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
+		   ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
   #+end_src
 
 * Spelling
@@ -365,46 +395,37 @@
   
   #+begin_src emacs-lisp
     (setq ispell-program-name "/usr/local/bin/aspell")
-    ; for org mode
+					    ; for org mode
     (add-hook 'org-mode-hook 'flyspell-mode)
-    ; comments in programming mode
+					    ; comments in programming mode
     (add-hook 'prog-mode-hook 'flyspell-prog-mode)
   #+end_src
 
 * Backup config
   #+begin_src emacs-lisp
-	; location to place backups
+					    ; location to place backups
     (setq backup-directory-alist `(("." . "~/Dropbox/emacs/backups")))
 
     (setq delete-old-versions t
-      kept-new-versions 6
-      kept-old-versions 2
-      version-control t)
+	  kept-new-versions 6
+	  kept-old-versions 2
+	  version-control t)
   #+end_src
 
 * Helm
   #+begin_src emacs-lisp
-     (use-package helm)
-     (helm-mode)
-     (use-package helm-org)
-     (use-package helm-org-rifle)
-;  :config
-;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory))
-;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle--refile))
-;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory)
+    (use-package helm)
+    (helm-mode)
+    (use-package helm-org)
+    (use-package helm-org-rifle)
+					    ;  :config
+					    ;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory))
+					    ;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle--refile))
+					    ;  (global-set-key (kbd "C-c C-w") #'helm-org-rifle-org-directory)
 
     (pm/leader-keys
-	  "d" 'helm-org-rifle-org-directory)
+      "d" 'helm-org-rifle-org-directory)
 
-  #+end_src
-
-* Yasnippet
-  #+begin_src emacs-lisp
-
-    (add-to-list 'load-path
-              "~/.emacs.d/plugins/yasnippet")
-    (require 'yasnippet)
-    (yas-global-mode 1)
   #+end_src
 
 * Deft 
@@ -422,3 +443,48 @@
     (global-set-key (kbd "C-c D") 'deft)
   #+end_src
 
+* Doc View
+  Set the docview to auto size for width of pdf
+  #+begin_src emacs-lisp
+    (defadvice doc-view-display (after fit-width activate)
+      (doc-view-fit-width-to-window))
+  #+end_src
+
+* irc
+  IRC client for emacs
+  M-x erc
+  #+begin_src emacs-lisp
+    ;; Set our nickname & real-name as constant variables
+    (setq
+     erc-nick "ltgimlet"     ; Our IRC nick
+     erc-user-full-name "ltgimlet") ; Our /whois name
+
+    ;; Define a function to connect to a server
+    (defun some-serv ()
+      (lambda ()
+	(interactive)
+	(erc :server "freenode.com"
+	     :port   "6667")))
+
+    ;; Or assign it to a keybinding
+    ;; This example is also using erc's TLS capabilities:
+    (global-set-key "\C-cen"
+		    (lambda ()
+		      (interactive)
+		      (erc-tls :server "server2.example.com"
+			       :port   "6697")))
+  #+end_src
+
+* Abbrev
+  Set up abbrevs to sync in "~/dropbox/common"
+
+  If you don't want the abrrev to expand then use "C-q"
+  define-global-abbrev is for global abbrev
+  define-mode-abbrev is to define it for the mode your current buffer is in
+
+  If you want a multi-line abbrev then select the text with your mouse in insert-mode and then C-u 0 C-x al (local mode or ag (global mode)
+  #+begin_src emacs-lisp
+    (setq abbrev-file-name "~/dropbox/common/abbrev_defs")
+    (setq save-abbrevs 'silent) ; save abbrevs when files save
+    (setq-default abbrev-mode t)
+  #+end_src
