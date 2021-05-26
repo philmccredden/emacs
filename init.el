@@ -14,7 +14,7 @@
  '(org-agenda-files
    '("~/Dropbox/org/emacs.org" "~/Dropbox/org/cofcsa.org" "~/Dropbox/org/feeds.org" "~/Dropbox/org/gladstone_uca.org" "~/Dropbox/org/inbox.org" "~/Dropbox/org/personal.org" "~/Dropbox/org/peter-rivett.org" "~/Dropbox/org/ppw.org" "~/Dropbox/org/setup.org" "~/Dropbox/org/shared-future.org" "~/Dropbox/org/southside.org" "~/Dropbox/org/test-beamer.org" "~/Dropbox/org/test.org" "~/Dropbox/org/work.org"))
  '(package-selected-packages
-   '(yasnippet-snippets helm-org-rifle helm-org helm deft org-evil org-dropbox elfeed-org elfeed org-pdftools pdf-tools switch-window ace-window smex Smex org-bullets hydra general all-the-icons ivy command-log-mode doom-themes use-package evil))
+   '(spacemacs-theme org-ref yasnippet-snippets helm-org-rifle helm-org helm deft org-evil org-dropbox elfeed-org elfeed org-pdftools pdf-tools switch-window ace-window smex Smex org-bullets hydra general all-the-icons ivy command-log-mode doom-themes use-package evil))
  '(pdf-tools-handle-upgrades nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

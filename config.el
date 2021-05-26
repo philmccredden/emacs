@@ -16,14 +16,14 @@
 (setq use-package-always-ensure t)
 
 (global-display-line-numbers-mode 1)
-;    (setq display-line-numbers-type 'relative)
+					;    (setq display-line-numbers-type 'relative)
 
-    ;; Disable line numbers for some modes
-    (dolist (mode '(term-mode-hook
-		    shell-mode-hook
-		    treemacs-mode-hook
-		    eshell-mode-hook))
-      (add-hook mode (lambda () (display-line-numbers-mode 0))))
+;; Disable line numbers for some modes
+(dolist (mode '(term-mode-hook
+		shell-mode-hook
+		treemacs-mode-hook
+		eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (show-paren-mode 1)                   ; match paranthesis
 (global-hl-line-mode t)               ; highlights the current line
@@ -357,6 +357,14 @@
 (setq abbrev-file-name "~/dropbox/common/abbrev_defs")
 (setq save-abbrevs 'silent) ; save abbrevs when files save
 (setq-default abbrev-mode t)
+
+(use-package org-ref)
+(setq reftex-default-bibliography '("~/Dropbox/common/MyLibrary.bib"))
+
+;; see org-ref for use of these variables
+(setq org-ref-bibliography-notes "~/Dropbox/org/notes.org"
+      org-ref-default-bibliography '("~/Dropbox/common/MyLibrary.bib")
+      org-ref-pdf-directory "~/Dropbox/org/bibtex-pdfs/")
 
 ;;; Install epdfinfo via 'brew install pdf-tools --HEAD' and then install the
 ;;; pdf-tools elisp via the use-package below. To upgrade the epdfinfo

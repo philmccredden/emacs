@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ package-install
+ org-ref-insert-link
  org-agenda
- org-capture
- eval-buffer
- add-mode-abbrev
- edit-abbrevs
- define-mode-abbrev
- list-abbrevs
+ org-ref-help
+ org-ref-browser
+ org-ref-bibtex
+ org-ref-index
 )
 
 ;; ----- smex-data -----
@@ -19,7 +19,7 @@
  (rename-file . 1)
  (rename-buffer . 1)
  (make-directory . 1)
- (org-agenda . 84)
+ (org-agenda . 86)
  (org-schedule . 2)
  (org-insert-link . 1)
  (org-publish . 1)
@@ -30,7 +30,7 @@
  (projectile-mode . 1)
  (load-theme . 2)
  (menu-bar--display-line-numbers-mode-relative . 2)
- (package-install . 9)
+ (package-install . 12)
  (pdf-tools-install . 1)
  (pdf-occur-dired-do-search . 1)
  (org-version . 2)
@@ -41,7 +41,7 @@
  (elfeed-update . 13)
  (elfeed-db-unload . 1)
  (recover-this-file . 1)
- (eval-buffer . 39)
+ (eval-buffer . 42)
  (calc-date . 1)
  (flyspell-mode . 4)
  (ispell . 1)
@@ -55,7 +55,7 @@
  (projectile-commander . 1)
  (projectile-dired-other-frame . 1)
  (projectile-add-known-project . 1)
- (package-list-packages . 1)
+ (package-list-packages . 2)
  (helm-org-rifle . 3)
  (helm-org-rifle-org-directory . 6)
  (helm-gid . 1)
@@ -80,10 +80,16 @@
  (org-agenda-menu . 1)
  (helm-org-agenda-files-headings . 2)
  (erc . 1)
- (define-mode-abbrev . 7)
+ (define-mode-abbrev . 9)
  (define-abbrevs . 1)
  (list-abbrevs . 2)
  (define-global-abbrev . 4)
  (edit-abbrevs . 2)
  (add-mode-abbrev . 3)
+ (org-ref-helm . 5)
+ (org-ref-index . 1)
+ (org-ref-bibtex . 2)
+ (org-ref-browser . 1)
+ (org-ref-help . 1)
+ (org-ref-insert-link . 1)
 )

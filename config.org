@@ -24,7 +24,7 @@
   Display relative line numbers in all modes except for shell
   #+begin_src emacs-lisp
     (global-display-line-numbers-mode 1)
-;    (setq display-line-numbers-type 'relative)
+					    ;    (setq display-line-numbers-type 'relative)
 
     ;; Disable line numbers for some modes
     (dolist (mode '(term-mode-hook
@@ -273,16 +273,16 @@
 * Org Projects
   Projects are headings with the :project: tag, so we generally don't want that tag inherited, except when we display unscheduled tasks that don't belong to any projects.
   #+begin_src emacs-lisp
-   (setq org-tags-exclude-from-inheritance '("project"))
- #+end_src
+    (setq org-tags-exclude-from-inheritance '("project"))
+  #+end_src
 * Org Capture
   Org capture templates
   #+begin_src emacs-lisp
-	(setq org-capture-templates
-	      '(("t" "Work Todo" entry (file "~/Dropbox/org/work.org")
-		 "* TODO %?\n%U" :empty-lines 1)
-		("e" "Emacs Config Todo" entry (file+headline "~/Dropbox/org/emacs.org" "Tasks")
-		 "* TODO %?\n  %i\n  %a")))
+    (setq org-capture-templates
+	  '(("t" "Work Todo" entry (file "~/Dropbox/org/work.org")
+	     "* TODO %?\n%U" :empty-lines 1)
+	    ("e" "Emacs Config Todo" entry (file+headline "~/Dropbox/org/emacs.org" "Tasks")
+	     "* TODO %?\n  %i\n  %a")))
   #+end_src
 * Switch Window
   #+begin_src emacs-lisp
@@ -475,4 +475,17 @@
     (setq abbrev-file-name "~/dropbox/common/abbrev_defs")
     (setq save-abbrevs 'silent) ; save abbrevs when files save
     (setq-default abbrev-mode t)
+  #+end_src
+
+* Org Ref
+  Allow bibliography references
+  #+begin_src emacs-lisp
+    (use-package org-ref)
+    (setq reftex-default-bibliography '("~/Dropbox/common/MyLibrary.bib"))
+
+    ;; see org-ref for use of these variables
+    (setq org-ref-bibliography-notes "~/Dropbox/org/notes.org"
+	  org-ref-default-bibliography '("~/Dropbox/common/MyLibrary.bib")
+	  org-ref-pdf-directory "~/Dropbox/org/bibtex-pdfs/")
+
   #+end_src
